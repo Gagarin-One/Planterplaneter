@@ -1,0 +1,55 @@
+.MainLogo{
+  display:flex;
+  justify-content:center;
+  margin:12px auto 24px auto;
+  
+}
+
+.SectionsWrapper{
+  display:flex;
+  flex-wrap: wrap;
+  width: 600px;
+height: auto;
+ justify-content: space-between;
+margin:0px auto;
+  .Home{
+    margin-left: 150px;
+  }
+}
+
+b{
+  font-size: 14px;
+  text-decoration: none;
+  color:#000;
+  // margin-right:10px;
+}
+
+.SearchAndUser svg path {
+  stroke:inherit;
+  stroke-width:inherit;
+  }
+  .SideSection:hover {
+  fill:#9B9B9B;
+  }
+
+.MainSectionsWrapper {
+  display:flex;
+  
+} 
+
+.SideSectionsWrapper{
+  
+  display:flex;
+  width: 150.07px;
+  height: 15.87px;
+  svg{
+    margin-left: 20px;
+  }
+  .counter{
+    margin-left: 10px;
+  }
+  .SearchAndUser{
+    display:flex;
+  }
+}
+
