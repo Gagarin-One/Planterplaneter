@@ -1,0 +1,21 @@
+.wrapper{
+  display:flex;
+  justify-content:space-between;
+  margin:105px 103px 85px;
+  flex-wrap: wrap;
+  
+}
+.ProductWrapper{
+  margin-right: 20px;
+  div{
+    margin:40px 0 13px 0;
+    text-align:center;
+    font-size: 14px;
+  }
+  b{
+    display:flex;
+    width:50px;
+    margin: 0 auto;
+    
+  }
+}
