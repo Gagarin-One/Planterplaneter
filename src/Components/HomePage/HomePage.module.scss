@@ -1,0 +1,98 @@
+.FrontImage{
+  margin-top:30px
+}
+.NavigationWithPictures{
+  margin: 0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  img{
+    width: 558px;
+    height: 303px;
+  }
+  .about{
+    margin-top:3px;
+    width:557px;
+    height: 289px;
+  }
+  .contact{
+    margin-left:5px;
+    width:533px;
+  }
+  .spaces{
+    margin-left:20px;
+    width:537px
+  }
+}
+
+.Products{
+  display:flex;
+  justify-content:center;
+  font-size: 40px;
+  margin-top:101px;
+}
+
+.MoreButton{
+  margin:0px auto;
+  width: 221px;
+  height: 88px;
+  background: #D4EEDB;
+  div{
+    text-align: center;
+    padding:18px;
+    color: #000000;
+    font-size: 36px;
+    font-family: 'Poppins'
+    
+  }
+  &:hover{
+    background: #acc2b2;
+  }
+}
+
+.footer{
+  display:flex;
+  background: rgba(166, 186, 150, 0.42);
+  width: 1440px;
+  height: 270px;
+  padding-top:81px;
+  margin-top: 106px;
+  margin-bottom:100px;
+  .footerWrapper{
+    display:flex;
+    flex-direction: column;
+    margin: 0px 159px;
+    line-height: 21px;
+  }
+
+  b{
+    font-size: 18px;
+  }
+  p{
+    width: 221px;
+    height: 198px;
+  }
+  >img{
+    position: relative;
+    bottom:200px;
+    left:100px;
+    width: 559px;
+    height: 559px;
+  }
+}
+.pay{
+  margin-top:200px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  
+  .visa{
+    height:26px;
+    width:38px;
+  }
+  .jcb{
+    height:26px;
+  }
+  img{
+    margin-right: 10px;
+    }
+  }
+  
