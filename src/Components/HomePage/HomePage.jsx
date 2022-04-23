@@ -13,7 +13,14 @@ const HomePage = () => {
         <img className={s.about} src='/Img/About_navigate.svg'/>
         <img className={s.contact} src='/Img/Contact_navigate.svg'/>
         <img className={s.spaces} src='/Img/Spaces_navigate.svg'/>
-        <div></div>
+        <div className={s.shop}>SHOP</div>
+      </div>
+      <div className={s.commentWrapper}>
+        <div className={s.comment}>
+          <img width='29' height='29' src='/Img/quote.svg' />
+          <p>We make the planteplaneter by hand in Denmark</p>
+        </div>
+        <img src='/Img/for_comments.png'/>
       </div>
       <b className={s.Products}>Products</b>
       <div>
@@ -51,10 +58,13 @@ const HomePage = () => {
           <b>Contact</b>
         </NavLink>
         </div >
-        <p>Designkollektivet,
-           Jægersborgsgade 5 2200 København N DENMARK  PHONE: +45 30 22 82 20     EMAIL: kaja@kajaskytte.dk CVR: 36353481</p>
+        <p className={s.contact}>  PHONE: +45 30 22 82 20 EMAIL: kaja@kajaskytte.dk CVR: 36353481</p>
         <img src='/Img/Footer_flower.png'/>
-        <div className={s.pay}>
+        <div className={s.discount}>
+          <p> GET 10% OFF SIGN UP FOR</p>
+          <p> YOUR NEXT ORDER A NEWSLETTER</p>
+        </div>
+        <div className={s.payItems}>
           <img className={s.jcb} src='/Img/jcb.png'/>
           <img className={s.visa} src='Img/visa.png'/>
           <img src='Img/mobilepay.png'/>
