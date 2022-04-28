@@ -1,7 +1,7 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import thunkMiddleware from "redux-thunk";
-import MainReducer from './Reducer'
+import ThunkMiddleware from "redux-thunk";
+import MainReducer from './Reducer.tsx'
 
 const reducers = combineReducers({
   MainReducer: MainReducer
@@ -18,6 +18,6 @@ ReturnType<InferValueTypes<T>>
 type rootType = typeof reducers
 export type StateType = ReturnType<rootType> 
 //@ts-ignore
-const store = createStore(reducers,composeWithDevTools(applyMiddleware(thunkMiddleware)))
+const store = createStore(reducers,composeWithDevTools(applyMiddleware(ThunkMiddleware)))
 
 export default store

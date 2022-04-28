@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import Products from '../Products/Products'
 import s from './HomePage.module.scss'
+import {useSelector,useDispatch} from 'react-redux'
+import { getArrayOfProducts } from '../../Redux/Reducer.tsx'
 const HomePage = () => {
   return(
     <div>
+  <div>
       <div className={s.FrontImage}>
         <img src='/Img/FrontImage.svg'/>
       </div>
@@ -23,11 +26,9 @@ const HomePage = () => {
         <img src='/Img/for_comments.png'/>
       </div>
       <b className={s.Products}>Products</b>
-      <div>
-        <Products/>
-      </div>
+      <div><Products/></div>
       <div className={s.MoreButton}>
-      <NavLink to='' style={{ textDecoration: 'none' }} >
+      <NavLink to='' style={{ textDecoration: 'none' }}>
         <div>SEE MORE</div>
       </NavLink>
       
@@ -72,6 +73,7 @@ const HomePage = () => {
         </div>
       </div>
       <img src='/Img/line.png'/>
+    </div> 
     </div> 
   )
 }

@@ -19,7 +19,7 @@ const initialState = {
     price: 399,
     image: "/Img/1_product_image.svg"
    }] as Array<Product>,
-  CurrentProduct:{} as Product
+  CurrentProduct:[] as Array<Product>
 }
 
 const MainReducer = (state = initialState, action:ActionType):InitialStateType => {
@@ -41,7 +41,7 @@ const MainReducer = (state = initialState, action:ActionType):InitialStateType =
 
 export const Actions = {
   getArrayOfProducts: (Products:Array<Product>) => ({type:'getArrayOfProducts', Products } as const),
-  getProductItem: (Product:Product) => ({type:'getProduct', Product } as const)
+  GetProductItem: (Product:Product) => ({type:'getProduct', Product } as const)
 }
 
 export type ActionType = ActionsTypePattern<typeof Actions>
@@ -51,7 +51,7 @@ export type ThunkActionType = ThunkAction<Promise<void>,StateType,unknown,Action
 export const getProductItem = (id:number):ThunkActionType => {
   return async (dispatch) => {
     let response = await getProduct(id);
-    dispatch(Actions.getProductItem(response))
+    dispatch(Actions.GetProductItem(response))
   }
 }
 
