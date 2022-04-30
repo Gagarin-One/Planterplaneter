@@ -9,9 +9,9 @@
   display:flex;
   flex-wrap: wrap;
   width: 600px;
-height: auto;
- justify-content: space-between;
-margin:0px auto;
+  height: auto;
+  justify-content: space-between;
+  margin:0 auto 9px;
   .Home{
     margin-left: 150px;
   }
@@ -21,7 +21,6 @@ b{
   font-size: 14px;
   text-decoration: none;
   color:#000;
-  // margin-right:10px;
 }
 
 .SearchAndUser svg path {
@@ -52,4 +51,6 @@ b{
     display:flex;
   }
 }
-
+.line{
+  max-width: 100%;
+}

@@ -52,6 +52,7 @@ const Header = () => {
       </div>
       
       </div>
+      <img className={s.line} src='/Img/line.png'/>
     </div>
   )
 }
