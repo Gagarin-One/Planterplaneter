@@ -8,9 +8,9 @@ const Products = () => {
   let ArrayOfProducts = useSelector((state) => state.MainReducer.ArrayOfProducts)
   
   let dispatch = useDispatch()
+  
   useEffect(() =>{
     dispatch(getArrayOfProducts())
- 
   },[])
   
 

@@ -1,17 +1,18 @@
 .wrapper{
-  display:flex;
-  justify-content:space-between;
-  margin:105px 103px 85px;
-  flex-wrap: wrap;
-  
+  display:grid;
+  margin:105px 103px 300px ;
+  grid-template-columns: repeat(auto-fit,minmax(274px,1fr));
+  gap:45px;
+
 }
 .ProductWrapper{
-  margin-right: 20px;
+  max-width: 274px;
   div{
     margin:40px 0 13px 0;
     text-align:center;
     font-size: 14px;
     color:black;
+    max-width: 50vw;
   }
   b{
     display:flex;
@@ -20,4 +21,10 @@
     color:black;
     
   }
+  img{
+    width: 274px;
+height: 274px;
+    
+  }
+  
 }
