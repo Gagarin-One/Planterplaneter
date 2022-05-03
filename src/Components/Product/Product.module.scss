@@ -26,7 +26,13 @@
     line-height: 28px;
     margin-bottom: 10px;
     margin-right: 10px;
+    cursor: pointer;
+    &:hover{
+      color:rgb(95, 93, 93);
+      background: rgba(104, 177, 2, 0.42);
+    }
   }
+  
   .counter{
     display: flex;
     width: 89px;
@@ -38,6 +44,9 @@
     font-size: 27px;
     justify-content:space-between;
     padding:8px 51px 12px;
+    &:hover{
+      background: rgba(104, 177, 2, 0.42);
+    }
   }
   .price{
     font-family: 'Poppins';
@@ -54,7 +63,14 @@
     max-width:524px;
     flex-wrap: wrap;
     margin:22px 0 42px 20px
-    
+  }
+  .Increase:hover{
+    color:rgb(95, 93, 93);
+    cursor: pointer;
+  }
+  .Decrease:hover{
+    color:rgb(95, 93, 93);
+    cursor: pointer;
   }
   .description{
     max-height: 585px;

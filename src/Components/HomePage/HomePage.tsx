@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import Products from '../Products/Products'
+import Products from '../Products/Products.tsx'
 import s from './HomePage.module.scss'
 import {useSelector,useDispatch} from 'react-redux'
-import { getArrayOfProducts } from '../../Redux/Reducer.tsx'
+import { getArrayOfProducts } from '../../Reducer.tsx'
 
 const HomePage = () => {
   return(
@@ -32,7 +32,7 @@ const HomePage = () => {
       <div className={s.commentWrapper}>
         <div className={s.comment}>
           <img width='29' height='29' src='/Img/quote.svg' />
-          <p>We make the planteplaneter by hand in Denmark</p>
+          <p>We make the planteplaneter by handin Denmark</p>
         </div>
         <img src='/Img/for_comments.png'/>
       </div>

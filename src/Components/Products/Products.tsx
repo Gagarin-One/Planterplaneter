@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { getArrayOfProducts,getProductItem  } from "../../Redux/Reducer.tsx";
+import { getArrayOfProducts,getProductItem  } from "../../Reducer.tsx";
 import s from './Products.module.scss'
 
 const Products = () => {
   let ArrayOfProducts = useSelector((state) => state.MainReducer.ArrayOfProducts)
   
   let dispatch = useDispatch()
-  
+
   useEffect(() =>{
     dispatch(getArrayOfProducts())
   },[])

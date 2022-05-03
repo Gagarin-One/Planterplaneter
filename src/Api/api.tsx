@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Product } from '../Redux/Reducer';
+import { Product } from '../Reducer';
 
 
 type getProductsType = Array<Product>
@@ -15,3 +15,14 @@ export const getProduct = (id:number) => {
   .then((response) => {return response.data})
 }
 
+export const GetShoppingCard = () => {
+  return axios.get<getProductsType>(`https://624fd576f0ae10a8ea4fba2f.mockapi.io/shoppingCard`).then((response) => {return response.data})
+}
+
+export const ProductToShoppingCard = (obj:Product) => {
+  return axios.post<Product>(`https://624fd576f0ae10a8ea4fba2f.mockapi.io/shoppingCard`, obj).then((response)=>{return response.data})
+}
+
+export const DeleteProductFromShoppingCard = (id:number) => {
+  return axios.delete<number>(`https://624fd576f0ae10a8ea4fba2f.mockapi.io/shoppingCard/?id=${id}`).then((response) => {return response.data})
+}

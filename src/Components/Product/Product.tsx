@@ -1,34 +1,55 @@
-import React, { useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
-import { getProductItem } from "../../Redux/Reducer.tsx";
+import { getProductItem, AddProductToShoppingCard } from "../../Reducer.tsx";
 import s from './Product.module.scss'
+import { StateType } from '../../Redux/Redux';
 
-const Product = () => {
-  let CurrentProduct = useSelector((state) => state.MainReducer.CurrentProduct)
+type ProductType = {} 
+type ProductItemType = {
+  id: number,
+  title: string,
+  price: number,
+  image: string
+}
+const Product:FC<ProductType> = () => {
+  let CurrentProduct = useSelector((state:StateType) => state.MainReducer.CurrentProduct)
+  let ShoppingCard = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
+  let [counter, setCounter] = useState(1)
+
   const dispatch = useDispatch()
   const Params = useParams()
   const currentId = parseFloat(Params.id)
 
   useEffect(() =>{
-    
     dispatch(getProductItem(currentId))
   },[])
 
+  const OnIncrease = () => {
+    setCounter(counter + 1)
+  }
+  const OnDecrease = () => {
+    if (counter > 1) {setCounter(counter-1)}
+  }
+
+  const AddToCard = () => {
+    ShoppingCard.every((obj:ProductItemType) => obj.id !== CurrentProduct.id) &&
+    dispatch(AddProductToShoppingCard(CurrentProduct))
+  }
 return (
   <div>
-    <div>{CurrentProduct.map((product) =>{return <div className={s.wrapper}>
+    <div>{CurrentProduct.map((product:ProductItemType) =>{return <div className={s.wrapper}>
       <img src={product.image}/>
       <div className={s.information}>
         <b className={s.title}>{product.title}</b>
         <div className={s.price}>{product.price}</div>
         <div className={s.addBlock}>
-          <button className={s.addToCard}>add to card</button>
+          <button onClick={() => AddToCard()} className={s.addToCard}>add to card</button>
           <div className={s.counter}>
-            <div>+</div>
-            <div>1</div>
-            <div>-</div>
+            <div className={s.Increase} onClick={() => OnIncrease()}>+</div>
+            <div>{counter}</div>
+            <div className={s.Decrease} onClick={() => OnDecrease()}>-</div>
           </div>
         </div>
         <div className={s.description}>
@@ -58,9 +79,7 @@ return (
             Shipping once a week with GLS (Denmark) or UPS (rest of Europe)
           </p>
         </div>
-    
       </div>
-      
     </div>
     })}
     </div>

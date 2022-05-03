@@ -1,7 +1,7 @@
 import React from "react";
 import { ThunkAction } from "redux-thunk";
-import { getProduct, GetArrayOfProducts,GetShoppingCard,ProductToShoppingCard } from '../Api/api.tsx';
-import { ActionsTypePattern, StateType } from './Redux';
+import { getProduct, GetArrayOfProducts,GetShoppingCard,ProductToShoppingCard } from './Api/api.tsx';
+import { ActionsTypePattern, StateType } from './Redux/Redux.tsx';
 
 
 export type Product = {
@@ -101,3 +101,4 @@ export const DeleteProductFromShoppingCard = (id:number):ThunkActionType =>{
 }
 
 export default MainReducer
+export type MainReducerType = typeof MainReducer
