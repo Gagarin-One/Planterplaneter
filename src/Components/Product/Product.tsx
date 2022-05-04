@@ -16,6 +16,7 @@ type ProductItemType = {
 const Product:FC<ProductType> = () => {
   let CurrentProduct = useSelector((state:StateType) => state.MainReducer.CurrentProduct)
   let ShoppingCard = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
+
   let [counter, setCounter] = useState(1)
 
   const dispatch = useDispatch()
@@ -48,7 +49,7 @@ return (
           <button onClick={() => AddToCard()} className={s.addToCard}>add to card</button>
           <div className={s.counter}>
             <div className={s.Increase} onClick={() => OnIncrease()}>+</div>
-            <div>{counter}</div>
+            <div>{CurrentProduct.quantity}</div>
             <div className={s.Decrease} onClick={() => OnDecrease()}>-</div>
           </div>
         </div>

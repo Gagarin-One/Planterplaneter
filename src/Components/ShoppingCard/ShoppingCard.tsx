@@ -24,6 +24,7 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
     }
     return sum
   }
+  
 
   useEffect(() =>{
     dispatch(GetShoppingCardArray())

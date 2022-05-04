@@ -26,3 +26,7 @@ export const ProductToShoppingCard = (obj:Product) => {
 export const DeleteProductFromShoppingCard = (id:number) => {
   return axios.delete<number>(`https://624fd576f0ae10a8ea4fba2f.mockapi.io/shoppingCard/?id=${id}`).then((response) => {return response.data})
 }
+
+export const UpdateQuantity = (obj:Product,id:number) => {
+  return axios.put<number>(`https://624fd576f0ae10a8ea4fba2f.mockapi.io/shoppingCard/?id=${id}`,obj).then((response) => {return response.data})
+}

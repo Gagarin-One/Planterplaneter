@@ -1,6 +1,6 @@
 import React from "react";
 import { ThunkAction } from "redux-thunk";
-import { getProduct, GetArrayOfProducts,GetShoppingCard,ProductToShoppingCard } from './Api/api.tsx';
+import { getProduct, GetArrayOfProducts,GetShoppingCard,ProductToShoppingCard,UpdateQuantity  } from './Api/api.tsx';
 import { ActionsTypePattern, StateType } from './Redux/Redux.tsx';
 
 
@@ -8,7 +8,8 @@ export type Product = {
   id: number,
   title: string,
   price: number,
-  image: string
+  image: string,
+  quantity:number
 }
 
 type InitialStateType = typeof initialState;
@@ -48,6 +49,16 @@ const MainReducer = (state = initialState, action:ActionType):InitialStateType =
         ...state,
         ShoppingCard:state.ShoppingCard.filter((item)=> item.id !== action.deleteId)
       }
+    case 'updateQuantityInCard':
+      return{
+        ...state,
+        ShoppingCard:state.ShoppingCard.map(m => {
+          if (m.id === action.UpdateId) {
+            return{...m, ...action.obj}
+          }
+          return m;
+        })
+      }
 
     default:
       return state
@@ -59,7 +70,8 @@ export const Actions = {
   GetProductItem: (Product:Array<Product>) => ({type:'getProduct', Product } as const),
   GetShoppingCardArray:(CardArray:Array<Product>) => ({type:'getCardArray', CardArray} as const),
   AddToShoppingCard: (addToCard:Product) => ({type:'addToShoppingCard',addToCard} as const),
-  DeleteProductFromShoppingCard: (deleteId:number) => ({type:'deleteProductFromShoppingCard', deleteId} as const)
+  DeleteProductFromShoppingCard: (deleteId:number) => ({type:'deleteProductFromShoppingCard', deleteId} as const),
+  UpdateQuantityInCard: (obj:Product,UpdateId:number) => ({type:'updateQuantityInCard', obj, UpdateId} as const)
 }
 
 export type ActionType = ActionsTypePattern<typeof Actions>
@@ -97,6 +109,12 @@ export const DeleteProductFromShoppingCard = (id:number):ThunkActionType =>{
   return async (dispatch) =>{
     DeleteProductFromShoppingCard(id)
     dispatch(Actions.DeleteProductFromShoppingCard(id))
+  }
+}
+export const UpdateQuantityInCard = (obj:Product,id:number):ThunkActionType =>{
+  return async (dispatch) =>{
+    UpdateQuantity(obj,id)
+    dispatch(Actions.UpdateQuantityInCard(obj,id))
   }
 }
 
