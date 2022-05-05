@@ -50,6 +50,7 @@
     max-width:800px;
     justify-content:space-between;
     border-top: 1px solid rgb(228, 228, 228);
+
     .remove{
       cursor: pointer;
       margin-right: 30px;
@@ -64,6 +65,7 @@
       fill: rgb(165, 165, 165);
       }
     }
+    
     .Price {
       font-size: 23px;
     }
@@ -117,4 +119,13 @@
       }
     }
   }
+}
+
+.didntOrder{
+  font-size:34px;
+  max-width:380px;
+  height:48px;
+  padding: 18px 20px;
+  border: 1px solid rgb(230, 227, 227);
+  margin: 180px auto 400px ;
 }

@@ -1,37 +1,42 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
-import { getProductItem, AddProductToShoppingCard } from "../../Reducer.tsx";
+import { getRequestedProductItem, AddProductToShoppingCard,UpdateQuantityInCard,Actions } from "../../Reducer.tsx";
 import s from './Product.module.scss'
 import { StateType } from '../../Redux/Redux';
 
-type ProductType = {} 
+
+type ProductType = {
+  
+} 
 type ProductItemType = {
   id: number,
   title: string,
   price: number,
-  image: string
+  image: string,
+  quantity: number
 }
 const Product:FC<ProductType> = () => {
   let CurrentProduct = useSelector((state:StateType) => state.MainReducer.CurrentProduct)
   let ShoppingCard = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
-
-  let [counter, setCounter] = useState(1)
+  let ProductsCount = useSelector((state:StateType) => state.MainReducer.ProductsCount)
+  // let [counter, setCounter] = useState(1)
 
   const dispatch = useDispatch()
   const Params = useParams()
   const currentId = parseFloat(Params.id)
 
   useEffect(() =>{
-    dispatch(getProductItem(currentId))
+    dispatch(getRequestedProductItem(currentId))
   },[])
 
   const OnIncrease = () => {
-    setCounter(counter + 1)
+    dispatch(Actions.changeCounter(CurrentProduct.id,CurrentProduct.ProductsCount + 1))
+    dispatch(Actions.getProduct(currentId))
   }
   const OnDecrease = () => {
-    if (counter > 1) {setCounter(counter-1)}
+    if (CurrentProduct.ProductsCount > 1) {dispatch(Actions.changeCounter(CurrentProduct.id,CurrentProduct.ProductsCount- 1))}
   }
 
   const AddToCard = () => {
@@ -40,16 +45,17 @@ const Product:FC<ProductType> = () => {
   }
 return (
   <div>
-    <div>{CurrentProduct.map((product:ProductItemType) =>{return <div className={s.wrapper}>
-      <img src={product.image}/>
+    <div>
+      <div className={s.wrapper}>
+      <img src={CurrentProduct.image}/>
       <div className={s.information}>
-        <b className={s.title}>{product.title}</b>
-        <div className={s.price}>{product.price}</div>
+        <b className={s.title}>{CurrentProduct.title}</b>
+        <div className={s.price}>{CurrentProduct.price}</div>
         <div className={s.addBlock}>
           <button onClick={() => AddToCard()} className={s.addToCard}>add to card</button>
           <div className={s.counter}>
             <div className={s.Increase} onClick={() => OnIncrease()}>+</div>
-            <div>{CurrentProduct.quantity}</div>
+            <div>{CurrentProduct.ProductsCount}</div>
             <div className={s.Decrease} onClick={() => OnDecrease()}>-</div>
           </div>
         </div>
@@ -82,7 +88,7 @@ return (
         </div>
       </div>
     </div>
-    })}
+    
     </div>
     <div className={s.alsoLike}>
       <b>YOU MIGHT ALSO LIKE</b>
