@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import s from './ShoppingCard.module.scss';
 import { StateType } from '../../Redux/Redux';
 import { useDispatch, useSelector } from "react-redux";
-import { GetShoppingCardArray,DeleteProductFromShoppingCard } from '../../Reducer.tsx';
+import { GetShoppingCardArray,DeleteProductFromShoppingCard,UpdateQuantityInCard } from '../../Reducer.tsx';
 
 
 
@@ -12,6 +12,7 @@ type ProductItemType = {
   title: string,
   price: number,
   image: string
+  ProductsCount: number
 }
 const ShoppingCard:FC<ShoppingCardType> = () => {
   let ShoppingCardArray = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
@@ -30,9 +31,23 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
     dispatch(DeleteProductFromShoppingCard(id))
   }
 
+  const OnIncrease = (Product:ProductItemType) => {
+    let obj = {...Product,...{ProductsCount:Product.ProductsCount + 1}}
+    dispatch(UpdateQuantityInCard(obj))
+
+  }
+  const OnDecrease = (Product:ProductItemType) => {
+    let obj = {...Product,...{ProductsCount:Product.ProductsCount - 1}}
+    if (Product.ProductsCount > 1) {
+      dispatch(UpdateQuantityInCard(obj))
+    }
+  }
+
   useEffect(() =>{
     dispatch(GetShoppingCardArray())
   },[])
+
+  
   if(ShoppingCardArray.length === 0) {
   return <div className={s.emptyWrapper}>
       <div className={s.didntOrder}>You didn't order anything</div>
@@ -55,11 +70,11 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
         {return <div className={s.Product}>
           <div className={s.ProductImage}><img src={Product.image}/></div>
           <div>{Product.title}</div>
-          {/* <div className={s.counter}>
-            <div className={s.Increase} onClick={() => OnIncrease()}>+</div>
-            <div>{counter}</div>
-            <div className={s.Decrease} onClick={() => OnDecrease()}>-</div>
-          </div> */}
+          <div className={s.counter}>
+            <div className={s.Increase} onClick={() => OnIncrease(Product)}>+</div>
+            <div>{Product.ProductsCount}</div>
+            <div className={s.Decrease} onClick={() => OnDecrease(Product)}>-</div>
+          </div>
           <div className={s.Price}>{Product.price}</div>
           <svg onClick={()=>remove(Product.id)} className={s.remove} width="32" height="32" viewBox="0 0 32 32" fill="#D7D7D7" xmlns="http://www.w3.org/2000/svg">
             <circle cx="16" cy="16" r="15" fill="white" stroke="#D7D7D7" stroke-width="2"/>

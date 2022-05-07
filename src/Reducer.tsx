@@ -50,48 +50,42 @@ const MainReducer = (state = initialState, action:ActionType):InitialStateType =
         ...state,
         ShoppingCard:state.ShoppingCard.filter((item)=> item.id !== action.deleteId)
       }
-    case 'changeCounter':
-      let obj = {ProductsCount:action.num}
+    case 'changeCounterInCurrentProduct':
       return{
-        ...state,ArrayOfProducts:state.ArrayOfProducts.map(m => {
-          if (m.id === action.CounterId) {
-            return{...m, ...obj}
+        ...state,CurrentProduct:action.CurrentProdObj
+      }
+    // case 'getProduct':
+    //   for (let i = 0; i < state.ArrayOfProducts.length; i++) {
+    //     if (state.ArrayOfProducts[i].id === action.ProductId){
+          
+    //         let p = state.ArrayOfProducts[i]
+    //       return p
+    //     }
+    //   }
+    //   return{
+    //     ...state,CurrentProduct:p
+    //   }
+      
+    case 'updateQuantityInCard':
+      return{
+        ...state,
+        ShoppingCard:state.ShoppingCard.map(m => {
+          if (m.id === action.UpdateId) {
+            return{...m, ...action.obj}
           }
           return m;
-        })}
-    case 'getProduct':
-      
-      for (let i = 0; i < state.ArrayOfProducts.length; i++) {
-        if (state.ArrayOfProducts[i].id === action.ProductId){
-          
-            let p = state.ArrayOfProducts[i]
-          return p
-        }
+        })
       }
+    case 'updateQuantityInProducts':
       return{
-        ...state,CurrentProduct:p
+        ...state,
+        ArrayOfProducts:state.ArrayOfProducts.map(m => {
+          if (m.id === action.UpdateId) {
+            return{...m, ...action.obj}
+          }
+          return m;
+        })
       }
-      
-    // case 'updateQuantityInCard':
-    //   return{
-    //     ...state,
-    //     ShoppingCard:state.ShoppingCard.map(m => {
-    //       if (m.id === action.UpdateId) {
-    //         return{...m, ...action.obj}
-    //       }
-    //       return m;
-    //     })
-    //   }
-    // case 'updateQuantityInProducts':
-    //   return{
-    //     ...state,
-    //     ShoppingCard:state.ArrayOfProducts.map(m => {
-    //       if (m.id === action.UpdateId) {
-    //         return{...m, ...action.obj}
-    //       }
-    //       return m;
-    //     })
-    //   }
 
     default:
       return state
@@ -100,14 +94,15 @@ const MainReducer = (state = initialState, action:ActionType):InitialStateType =
 
 export const Actions = {
   getArrayOfProducts: (Products:Array<Product>) => ({type:'getArrayOfProducts', Products } as const),
-  getRequestedProductItem: (Product:Product) => ({type:'getProduct', Product } as const),
+  getProduct: (Product:Product) => ({type:'getProduct', Product } as const),
   GetShoppingCardArray:(CardArray:Array<Product>) => ({type:'getCardArray', CardArray} as const),
   AddToShoppingCard: (addToCard:Product) => ({type:'addToShoppingCard',addToCard} as const),
   DeleteProductFromShoppingCard: (deleteId:number) => ({type:'deleteProductFromShoppingCard', deleteId} as const),
-  changeCounter: (CounterId:number,num:number) => ({type:'changeCounter', CounterId, num} as const),
-  getProduct:(ProductId:number)=>({type:'getProduct',ProductId} as const)
-  // UpdateQuantityInCard: (obj:Product,UpdateId:number) => ({type:'updateQuantityInCard', obj, UpdateId} as const),
-  // UpdateQuantityInProducts: (obj:Product,UpdateId:number) => ({type:'updateQuantityInProducts', obj, UpdateId} as const)
+  changeCounterInArrayOfProduct: (CounterId:number,num:number) => ({type:'changeCounterInArrayOfProduct', CounterId, num} as const),
+  changeCounterInCurrentProduct: (CurrentProdObj:Product) => ({type:'changeCounterInCurrentProduct', CurrentProdObj} as const),
+  
+  UpdateQuantityInCard: (obj:Product,UpdateId:number) => ({type:'updateQuantityInCard', obj, UpdateId} as const),
+  UpdateQuantityInProducts: (obj:Product,UpdateId:number) => ({type:'updateQuantityInProducts', obj, UpdateId} as const)
 }
 
 export type ActionType = ActionsTypePattern<typeof Actions>
@@ -118,7 +113,7 @@ export const getRequestedProductItem = (id:number):ThunkActionType => {
   return async (dispatch) => {
     let response = await getProduct(id);
     for(let i = 0; i < response.length; i++) {
-      dispatch(Actions.getRequestedProductItem(response[i]));
+      dispatch(Actions.getProduct(response[i]));
     }
   }
 }
@@ -149,14 +144,17 @@ export const DeleteProductFromShoppingCard = (id:number):ThunkActionType =>{
     dispatch(Actions.DeleteProductFromShoppingCard(id))
   }
 }
-// export const UpdateQuantityInCard = (obj:Product,id:number):ThunkActionType =>{
-//   return async (dispatch) =>{
-//     UpdateQuantityInShopCard(obj,id)
-//     UpdateQuantityInArrayOfProducts(obj,id)
-//     dispatch(Actions.UpdateQuantityInCard(obj,id))
-//     dispatch(Actions.UpdateQuantityInProducts(obj,id))
-//   }
-// }
+export const UpdateQuantityInCard = (obj:Product):ThunkActionType =>{
+  return async (dispatch,getState) =>{
+    // UpdateQuantityInShopCard(obj,id)
+    UpdateQuantityInArrayOfProducts(obj)
+    if(getState().MainReducer.ShoppingCard.length > 0) { UpdateQuantityInShopCard(obj)}
+    // dispatch(Actions.UpdateQuantityInCard(obj,id))
+    dispatch(Actions.changeCounterInCurrentProduct(obj))
+    dispatch(Actions.UpdateQuantityInProducts(obj,obj.id))
+    dispatch(Actions.UpdateQuantityInCard(obj,obj.id))
+  }
+}
 
 export default MainReducer
 export type MainReducerType = typeof MainReducer

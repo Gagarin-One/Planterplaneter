@@ -27,10 +27,10 @@ export const DeleteProductFromCard = (id:number) => {
   return axios.delete<number>(`https://624fd576f0ae10a8ea4fba2f.mockapi.io/shoppingCard/${id}`).then((response) => {return response.data})
 }
 
-export const UpdateQuantityInShopCard = (obj:Product,id:number) => {
-  return axios.put<number>(`https://624fd576f0ae10a8ea4fba2f.mockapi.io/shoppingCard/${id}`,obj).then((response) => {return response.data})
+export const UpdateQuantityInShopCard = (obj:Product) => {
+  return axios.put<number>(`https://624fd576f0ae10a8ea4fba2f.mockapi.io/shoppingCard/${obj.id}`, obj).then((response) => {return response.data})
 }
 
-export const UpdateQuantityInArrayOfProducts = (obj:Product,id:number) => {
-  return axios.put<number>(`https://624fd576f0ae10a8ea4fba2f.mockapi.io/Products/${id}`,obj).then((response) => {return response.data})
+export const UpdateQuantityInArrayOfProducts = (obj:Product) => {
+  return axios.put<number>(`https://624fd576f0ae10a8ea4fba2f.mockapi.io/Products/${obj.id}`, obj).then((response) => {return response.data})
 }

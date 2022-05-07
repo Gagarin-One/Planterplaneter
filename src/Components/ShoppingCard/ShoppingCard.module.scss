@@ -42,6 +42,29 @@
     height:520px;
     overflow: auto;
   }
+  .counter{
+    display: flex;
+    width: 89px;
+    height: 30px;
+    background: rgba(87, 149, 0, 0.42);
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 27px;
+    justify-content:space-between;
+    padding:8px 51px 12px;
+    &:hover{
+      background: rgba(104, 177, 2, 0.42);
+    }
+  }
+  .Increase:hover{
+    color:rgb(95, 93, 93);
+    cursor: pointer;
+  }
+  .Decrease:hover{
+    color:rgb(95, 93, 93);
+    cursor: pointer;
+  }
   .Product{
     margin-top: 50px;
     padding-top: 30px;
@@ -65,7 +88,7 @@
       fill: rgb(165, 165, 165);
       }
     }
-    
+
     .Price {
       font-size: 23px;
     }
