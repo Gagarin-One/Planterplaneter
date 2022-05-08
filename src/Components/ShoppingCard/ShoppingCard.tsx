@@ -9,10 +9,13 @@ import { GetShoppingCardArray,DeleteProductFromShoppingCard,UpdateQuantityInCard
 type ShoppingCardType = {}
 type ProductItemType = {
   id: number,
-  title: string,
-  price: number,
-  image: string
-  ProductsCount: number
+  data:{
+    ProductId: number
+    title: string,
+    price: number,
+    image: string,
+    ProductsCount: number
+  }
 }
 const ShoppingCard:FC<ShoppingCardType> = () => {
   let ShoppingCardArray = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
@@ -22,7 +25,7 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
   let sumPrice = () => { 
     let sum:number = 0;
     for (let i = 0; ShoppingCardArray.length > i; i++) {
-      sum += ShoppingCardArray[i].price
+      sum += ShoppingCardArray[i].data.price
     }
     return sum
   }
@@ -32,13 +35,15 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
   }
 
   const OnIncrease = (Product:ProductItemType) => {
-    let obj = {...Product,...{ProductsCount:Product.ProductsCount + 1}}
+    let dataObj = {ProductsCount:Product.data.ProductsCount + 1}
+    let obj = {...Product,...{data:{...Product.data,...dataObj}}}
     dispatch(UpdateQuantityInCard(obj))
 
   }
   const OnDecrease = (Product:ProductItemType) => {
-    let obj = {...Product,...{ProductsCount:Product.ProductsCount - 1}}
-    if (Product.ProductsCount > 1) {
+    let dataObj = {ProductsCount:Product.data.ProductsCount - 1}
+    let obj = {...Product,...{data:{...Product.data,...dataObj}}}
+    if (Product.data.ProductsCount > 1) {
       dispatch(UpdateQuantityInCard(obj))
     }
   }
@@ -47,7 +52,7 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
     dispatch(GetShoppingCardArray())
   },[])
 
-  
+
   if(ShoppingCardArray.length === 0) {
   return <div className={s.emptyWrapper}>
       <div className={s.didntOrder}>You didn't order anything</div>
@@ -68,15 +73,15 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
       <div className={s.ProductWrapper}>
         {ShoppingCardArray.map((Product:ProductItemType) =>
         {return <div className={s.Product}>
-          <div className={s.ProductImage}><img src={Product.image}/></div>
-          <div>{Product.title}</div>
+          <div className={s.ProductImage}><img src={Product.data.image}/></div>
+          <div>{Product.data.title}</div>
           <div className={s.counter}>
             <div className={s.Increase} onClick={() => OnIncrease(Product)}>+</div>
-            <div>{Product.ProductsCount}</div>
+            <div>{Product.data.ProductsCount}</div>
             <div className={s.Decrease} onClick={() => OnDecrease(Product)}>-</div>
           </div>
-          <div className={s.Price}>{Product.price}</div>
-          <svg onClick={()=>remove(Product.id)} className={s.remove} width="32" height="32" viewBox="0 0 32 32" fill="#D7D7D7" xmlns="http://www.w3.org/2000/svg">
+          <div className={s.Price}>{Product.data.price}</div>
+          <svg onClick={()=>remove(Product.data.ProductId)} className={s.remove} width="32" height="32" viewBox="0 0 32 32" fill="#D7D7D7" xmlns="http://www.w3.org/2000/svg">
             <circle cx="16" cy="16" r="15" fill="white" stroke="#D7D7D7" stroke-width="2"/>
             <path d="M19.7479 17.9557L17.4993 15.7071L19.7479 13.4585C20.1618 13.0446 20.1618 12.3734 19.7479 11.9595C19.334 11.5455 18.6628 11.5455 18.2488 11.9595L16.0002 14.2081L13.7516 11.9595C13.3377 11.5455 12.6665 11.5455 12.2526 11.9595C11.8386 12.3734 11.8386 13.0446 12.2526 13.4585L14.5012 15.7071L12.2526 17.9557C11.8386 18.3696 11.8386 19.0409 12.2526 19.4548C12.6665 19.8687 13.3377 19.8687 13.7516 19.4548L16.0002 17.2062L18.2488 19.4548C18.6628 19.8687 19.334 19.8687 19.7479 19.4548C20.1618 19.0409 20.1618 18.3696 19.7479 17.9557Z" />
             </svg>

@@ -3,9 +3,11 @@ import { Link, NavLink } from 'react-router-dom'
 import Products from '../Products/Products.tsx'
 import s from './HomePage.module.scss'
 import {useSelector,useDispatch} from 'react-redux'
-import { getArrayOfProducts } from '../../Reducer.tsx'
+import { getArrayOfProducts,getFourProducts } from '../../Reducer.tsx'
+import { StateType } from '../../Redux/Redux';
 
 const HomePage = () => {
+  let FourProducts = useSelector((state:StateType) => state.MainReducer.FourProducts)
   return(
     <div>
   <div>
@@ -37,7 +39,7 @@ const HomePage = () => {
         <img src='/Img/for_comments.png'/>
       </div>
       <b className={s.Products}>Products</b>
-      <div><Products/></div>
+      <div><Products ArrayOfProducts={FourProducts} request={getFourProducts}/></div>
       <div className={s.MoreButton}>
       <NavLink to='' style={{ textDecoration: 'none' }}>
         <div>SEE MORE</div>

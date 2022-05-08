@@ -12,16 +12,19 @@ type ProductType = {
 } 
 type ProductItemType = {
   id: number,
-  title: string,
-  price: number,
-  image: string,
-  ProductsCount: number
+  data:{
+    ProductId: number
+    title: string,
+    price: number,
+    image: string,
+    quantity:number
+    ProductsCount: number
+  }
 }
 const Product:FC<ProductType> = () => {
   let CurrentProduct = useSelector((state:StateType) => state.MainReducer.CurrentProduct)
   let ShoppingCard = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
   let ProductsCount = useSelector((state:StateType) => state.MainReducer.ProductsCount)
-  // let [counter, setCounter] = useState(1)
 
   const dispatch = useDispatch()
   const Params = useParams()
@@ -30,22 +33,24 @@ const Product:FC<ProductType> = () => {
   useEffect(() =>{
     dispatch(getRequestedProductItem(currentId))
   },[])
-
   const OnIncrease = () => {
-    let obj = {...CurrentProduct,...{ProductsCount:CurrentProduct.ProductsCount + 1}}
+    let dataObj ={...CurrentProduct,...{ProductsCount:CurrentProduct.ProductsCount + 1}}
+    let obj = {id:CurrentProduct.ProductId,data:dataObj}
     dispatch(UpdateQuantityInCard(obj))
-
   }
+
   const OnDecrease = () => {
-    let obj = {...CurrentProduct,...{ProductsCount:CurrentProduct.ProductsCount - 1}}
+    // let obj = {...CurrentProduct,...{ProductsCount:CurrentProduct.ProductsCount - 1}}
+    let dataObj ={...CurrentProduct,...{ProductsCount:CurrentProduct.ProductsCount - 1}}
+    let obj = {id:CurrentProduct.ProductId,data:dataObj}
     if (CurrentProduct.ProductsCount > 1) {
       dispatch(UpdateQuantityInCard(obj))
     }
   }
 
   const AddToCard = () => {
-    ShoppingCard.every((obj:ProductItemType) => obj.title !== CurrentProduct.title) &&
-    dispatch(AddProductToShoppingCard(CurrentProduct))
+    ShoppingCard.every((obj:ProductItemType) => obj.data.ProductId !== CurrentProduct.ProductId) &&
+    dispatch(AddProductToShoppingCard({id:CurrentProduct.ProductId,data:CurrentProduct}))
   }
 return (
   <div>
