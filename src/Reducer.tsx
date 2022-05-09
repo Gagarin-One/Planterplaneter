@@ -168,7 +168,8 @@ export const DeleteProductFromShoppingCard = (id:number):ThunkActionType =>{
     dispatch(Actions.DeleteProductFromShoppingCard(id))
   }
 }
-export const UpdateQuantityInCard = (obj:Product):ThunkActionType =>{
+
+export const UpdateQuantityInCard = (obj:Product,isUpdateShopCard = false ):ThunkActionType =>{
   return async (dispatch,getState) =>{
     
     UpdateQuantityInArrayOfProducts(obj,obj.data.ProductId)
@@ -178,7 +179,8 @@ export const UpdateQuantityInCard = (obj:Product):ThunkActionType =>{
     {if(getState().MainReducer.ShoppingCard[i].data.ProductId === obj.data.ProductId){
       UpdateQuantityInShopCard(obj,getState().MainReducer.ShoppingCard[i].id)
     }}}
-    dispatch(GetShoppingCardArray())
+    isUpdateShopCard && dispatch(GetShoppingCardArray())
+    
     // if(getState().MainReducer.ShoppingCard.length > 0) {UpdateQuantityInShopCard(obj,id)}
     dispatch(Actions.changeCounterInCurrentProduct(obj.data))
     dispatch(Actions.UpdateQuantityInProducts(obj,obj.data.ProductId))

@@ -36,7 +36,8 @@ const Product:FC<ProductType> = () => {
   const OnIncrease = () => {
     let dataObj ={...CurrentProduct,...{ProductsCount:CurrentProduct.ProductsCount + 1}}
     let obj = {id:CurrentProduct.ProductId,data:dataObj}
-    dispatch(UpdateQuantityInCard(obj))
+    let is = false
+    dispatch(UpdateQuantityInCard(obj,true))
   }
 
   const OnDecrease = () => {
@@ -44,7 +45,7 @@ const Product:FC<ProductType> = () => {
     let dataObj ={...CurrentProduct,...{ProductsCount:CurrentProduct.ProductsCount - 1}}
     let obj = {id:CurrentProduct.ProductId,data:dataObj}
     if (CurrentProduct.ProductsCount > 1) {
-      dispatch(UpdateQuantityInCard(obj))
+      dispatch(UpdateQuantityInCard(obj,true))
     }
   }
 

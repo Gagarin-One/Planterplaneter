@@ -27,7 +27,7 @@ const HomePage = () => {
         <Link to='/'>
           <img className={s.spaces} src='/Img/4_Image_Navigate.png'/>
         </Link>
-        <NavLink style={{ textDecoration: 'none' }} className={s.shop} to='/Products'>
+        <NavLink style={{ textDecoration: 'none' }} className={s.shop} to='/Shop'>
           <div >SHOP</div>
         </NavLink>
       </div>

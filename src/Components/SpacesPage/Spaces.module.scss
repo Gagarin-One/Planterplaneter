@@ -1,0 +1,45 @@
+.About{
+  display:flex;
+  max-width: 1087px;
+  justify-content:space-between;
+  margin:38px auto 40px;
+  >p{
+    position:absolute;
+    font-size:77px;
+    font-weight:bold;
+    margin-top:60px;
+    text-shadow: 0 0px 12px rgb(255, 255, 255);
+    margin-left:10px;
+  }
+  img{
+    margin-top:40px;
+  }
+  .title{
+    margin:124px 20px 150px 0 ;
+    max-width: 658px;
+    b{
+      font-size:32px;
+      line-height:38px;
+      
+    }
+    p{
+      margin-top:20px;
+      font-weight: 100;
+      font-size:18px;
+      line-height:28px;
+    }
+  }
+}
+
+.FrontImage{
+  margin-top:30px;
+  position: relative;
+  padding-top: 56.25%; 
+  padding: 0 auto;
+  img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;}
+}
