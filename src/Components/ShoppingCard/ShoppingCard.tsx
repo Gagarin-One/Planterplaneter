@@ -3,6 +3,7 @@ import s from './ShoppingCard.module.scss';
 import { StateType } from '../../Redux/Redux';
 import { useDispatch, useSelector } from "react-redux";
 import { GetShoppingCardArray,DeleteProductFromShoppingCard,UpdateQuantityInCard } from '../../Reducer.tsx';
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 
@@ -19,7 +20,7 @@ type ProductItemType = {
 }
 const ShoppingCard:FC<ShoppingCardType> = () => {
   let ShoppingCardArray = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
-
+  let navigate = useNavigate()
   const dispatch = useDispatch()
 
   let sumPrice = () => { 
@@ -52,6 +53,9 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
     dispatch(GetShoppingCardArray())
   },[])
 
+  let clearCard = () => {
+
+  }
 
   if(ShoppingCardArray.length === 0) {
   return <div className={s.emptyWrapper}>
@@ -65,10 +69,7 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
           <img src='/Img/shopIcon.svg'/>
           <p>Shopping card</p>
         </div>
-        <div className={s.right}>
-          <img src='/Img/iconfinder_trash.svg'/>
-          <p>Clear the shopping cart</p>
-        </div>
+        
       </div>
       <div className={s.ProductWrapper}>
         {ShoppingCardArray.map((Product:ProductItemType) =>
@@ -90,7 +91,9 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
       <div className={s.bottomPanel}>
         <div className={s.leftTotal}>
           <p>Total count: {ShoppingCardArray.length} pieces</p>
-          <button className={s.Back}>Go back</button>
+          
+            <button onClick={() => navigate(-1)} className={s.Back}>Go back</button>
+         
         </div>
         <div className={s.rightTotal}>
           <p>Total price: {sumPrice()}</p>

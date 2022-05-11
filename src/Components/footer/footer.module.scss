@@ -19,7 +19,12 @@
   
   b{
     font-size: 18px;
+    
+    &:hover{
+      color: rgb(128, 128, 128)
+    }
   }
+
   p{
     width: 221px;
     height: 198px;

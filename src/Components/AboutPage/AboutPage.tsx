@@ -36,6 +36,20 @@ let About = () => {
             <img src="/Img/About/2_About.png"/>
           </div>
       </div>
+      <div className={s.cartWrapperLeft}>
+          <div className={s.unitImage}>
+            <img src="/Img/About/3_About.png"/>
+          </div>
+          <div className={s.text}>
+            <p className={s.title}>GUESTapart/aarhus Hotel</p>
+            <p className={s.description}>
+              We are proud to show our planteplaneter in this beautiful hotel, GUESTapart/aarhus. Our Planteplaneter  is decorating restaurant and rooms.
+              Interior concept development and styling by ULF & DAMSHOLT
+            </p>
+            <p></p>
+          </div>
+          
+      </div>
       <div className={s.cartWrapper}>
           <div className={s.text}>
             <p className={s.title}>LAB Showroom</p>
@@ -45,9 +59,39 @@ let About = () => {
             <p></p>
           </div>
           <div className={s.unitImage}>
-            <img src="/Img/About/3_About.png"/>
+            <img src="/Img/About/4_About.png"/>
           </div>
-        </div>
+      </div>
+      <div className={s.unit}>
+      <p >EXHIBITION</p>
+      </div>
+      <div className={s.cartWrapper}>
+          <div className={s.text}>
+            <p className={s.title}>Georg Jensen Milano Fair 2015</p>
+            <p className={s.description}>
+            Planteplaneter were featured at Georg Jensen’s stand at the Milano Fair 2015, hanging in a adorable little rustic restaurant – Taglio Dinner.
+            They added a special twist to the dinner table, creating a natural ice breaker for the attending guests.
+
+            Stylist: Pernille Vest
+            </p>
+            <p></p>
+          </div>
+          <div className={s.unitImage}>
+            <img src="/Img/About/5_About.png"/>
+          </div>
+      </div>
+      <div className={s.cartWrapper}>
+          <div className={s.text}>
+            <p className={s.title}>Dome of visions</p>
+            <p className={s.description}>
+            Blad Journal opening. Dome of Visions in Copenhagen 2015.
+            </p>
+            <p></p>
+          </div>
+          <div className={s.unitImage}>
+            <img src="/Img/About/6_About.png"/>
+          </div>
+      </div>
     </div>
   )
 }

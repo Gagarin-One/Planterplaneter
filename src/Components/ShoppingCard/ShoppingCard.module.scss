@@ -22,15 +22,18 @@
       height:60px;
       width:140px;
       padding:5px 15px;
-      background-color:rgba(166, 186, 150, 0.42);
+      background-color:rgba(160, 184, 141, 0.42);
       align-items: center;
       cursor: pointer;
       img{
         width: 20px;
       }
-      p{
+      button{
         width:100px;
         margin-left: 10px;
+        background-color:rgba(213, 223, 205, 0.42);
+        border:none;
+        cursor: pointer;
       }
       &:hover{
         background-color:rgba(137, 179, 103, 0.42);

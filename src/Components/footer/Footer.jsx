@@ -6,27 +6,27 @@ return (
   <div>
     <div className={s.footer}>
         <div className={s.footerWrapper}>
-        <NavLink style={{ textDecoration: 'none' }}  to='../HomePage/HomePage.jsx'>
+        <NavLink style={{ textDecoration: 'none', marginBottom:'10px'}}  to='/'>
           <b >Home</b>
         </NavLink>
           
-        <NavLink style={{ textDecoration: 'none' }} to='../ShopPage/ShopPage.jsx'>
+        <NavLink style={{ textDecoration: 'none', marginBottom:'10px' }} to='/Shop'>
           <b>Shop</b>
         </NavLink>
 
-        <NavLink style={{ textDecoration: 'none' }} to='../WorkshopsPage/Workshop.jsx'>
+        <NavLink style={{ textDecoration: 'none', marginBottom:'10px' }} to='/Workshops'>
           <b>Workshops</b>
         </NavLink>
 
-        <NavLink style={{ textDecoration: 'none' }} to='../SpacesPage/Spaces.jsx'>
+        <NavLink style={{ textDecoration: 'none', marginBottom:'10px' }} to='/Spaces'>
           <b>Spaces</b>
         </NavLink>
           
-        <NavLink style={{ textDecoration: 'none' }} to='../AboutPage/AboutPage.jsx'>
+        <NavLink style={{ textDecoration: 'none', marginBottom:'10px' }} to='/About'>
           <b>About</b>
         </NavLink>
         
-        <NavLink style={{ textDecoration: 'none' }} to='../ContactPage/Contact.jsx'>
+        <NavLink style={{ textDecoration: 'none', marginBottom:'10px' }} to='/Contact'>
           <b>Contact</b>
         </NavLink>
         </div >

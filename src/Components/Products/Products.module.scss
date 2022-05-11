@@ -7,6 +7,10 @@
 }
 .ProductWrapper{
   max-width: 274px;
+  &:hover{
+    cursor: pointer;
+    opacity: 0.6;
+  }
   div{
     margin:40px 0 13px 0;
     text-align:center;

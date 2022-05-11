@@ -1,5 +1,24 @@
 import s from './Workshop.module.scss'
+import { StateType } from '../../Redux/Redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { AddProductToShoppingCard } from '../../Reducer.tsx';
 let Workshops = () => {
+  let ShoppingCard = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
+  const dispatch = useDispatch()
+  const CurrentProduct = {
+    "id": "7",
+    "data": {
+     "ProductId": "7",
+     "title": "CRASSULA HALO PLANTEPLANET",
+     "price": 399,
+     "image": "/Img/Products/Crassula-smallleaf-planteplaneter-kajaskytte-hanginggarden-greenliving-danishdesign-565x565.png",
+     "ProductsCount": 3}
+    }
+
+  let AddToCard = () => {
+    ShoppingCard.every((obj:ProductItemType) => obj.data.ProductId !== CurrentProduct.data.ProductId) &&
+    dispatch(AddProductToShoppingCard(CurrentProduct))
+  }
   return(
     <div>
       <div className={s.FrontImage}>

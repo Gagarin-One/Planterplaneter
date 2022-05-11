@@ -15,16 +15,16 @@ const HomePage = () => {
         <img src='/Img/FrontImage.svg'/>
       </div>
       <div className={s.NavigationWithPictures}>
-        <Link to='/'>
+        <Link to='/Workshops'>
           <img className={s.workshop} src='/Img/1_Image_Navigate.png'/>
         </Link>
-        <Link to='/'>
+        <Link to='/About'>
           <img className={s.about} src='/Img/2_Image_Navigate.png'/>
         </Link>
-        <Link to='/'>
+        <Link to='/Contact'>
           <img className={s.contact} src='/Img/3_Image_Navigate.png'/>
         </Link>
-        <Link to='/'>
+        <Link to='/Spaces'>
           <img className={s.spaces} src='/Img/4_Image_Navigate.png'/>
         </Link>
         <NavLink style={{ textDecoration: 'none' }} className={s.shop} to='/Shop'>
@@ -41,7 +41,7 @@ const HomePage = () => {
       <b className={s.Products}>Products</b>
       <div><Products ArrayOfProducts={FourProducts} request={getFourProducts}/></div>
       <div className={s.MoreButton}>
-      <NavLink to='' style={{ textDecoration: 'none' }}>
+      <NavLink to='/Shop' style={{ textDecoration: 'none' }}>
         <div>SEE MORE</div>
       </NavLink>
       </div>
