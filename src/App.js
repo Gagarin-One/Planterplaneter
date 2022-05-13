@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { Route,Routes } from 'react-router-dom';
 import s from './App.module.scss'
-import Footer from './Components/footer/Footer';
 import Header from './Components/Header/Header';
-import HomePage from './Components/HomePage/HomePage';
-import Product from './Components/Product/Product';
-import ShopPage from './Components/ShopPage/ShopPage';
-import Workshops from './Components/WorkshopsPage/Workshop'
-import ShoppingCard from './Components/ShoppingCard/ShoppingCard';
-import Spaces from './Components/SpacesPage/Spaces';
-import About from './Components/AboutPage/AboutPage'
+import Preloader from './Components/Preloader/Preloader';
+
+const HomePage = lazy(() => import('./Components/HomePage/HomePage'))
+const Product = lazy(() => import('./Components/Product/Product'))
+const ShopPage = lazy(() => import('./Components/ShopPage/ShopPage'))
+const Workshops = lazy(() => import('./Components/WorkshopsPage/Workshop'))
+const ShoppingCard = lazy(() => import('./Components/ShoppingCard/ShoppingCard'))
+const Spaces = lazy(() => import('./Components/SpacesPage/Spaces'))
+const About = lazy(() => import('./Components/AboutPage/AboutPage'))
+const Search = lazy(() => import('./Components/Search/Search'))
+const Contacts = lazy(() => import('./Components/ContactPage/Contact'))
+const Footer = lazy(() => import('./Components/footer/Footer'))
 
 function App() {
   let [counter, setCounter] = useState(1)
@@ -17,16 +21,23 @@ function App() {
   return (
     <div className={s.App}>
       <Header/>
-
-      <Routes>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/Shopping_card" element={<ShoppingCard counter={counter} changeCounter={setCounter}/>}/>
-        <Route path='/Spaces' element={<Spaces/>}/>
-        <Route path='/About' element={<About/>}/>
-        <Route path='/Shop' element={<ShopPage/>}/>
-        <Route path='/Workshops' element={<Workshops/>}/>
-        <Route path='/Products/:id' element={<Product counter={counter} changeCounter={setCounter}/>}/>
-      </Routes>
+      <Suspense fallback={<div><Preloader/></div>}>
+        <Routes>
+            <Route path="/" element={<HomePage/>}/>
+            <Route path='/Search' element={<Search/>}/>
+            <Route path="/Shopping_card" element={<ShoppingCard 
+            counter={counter}
+            changeCounter={setCounter}/>}/>
+            <Route path='/Spaces' element={<Spaces/>}/>
+            <Route path='/About' element={<About/>}/>
+            <Route path='/Shop' element={<ShopPage/>}/>
+            <Route path='/Workshops' element={<Workshops/>}/>
+            <Route path='/Products/:id' element={<Product
+            counter={counter} 
+            changeCounter={setCounter}/>}/>
+            <Route path='/Contacts' element={<Contacts/>}/>
+        </Routes>
+      </Suspense>
       <Footer/>
     </div>
   );

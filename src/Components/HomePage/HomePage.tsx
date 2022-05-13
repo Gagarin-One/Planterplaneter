@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import Products from '../Products/Products'
 import s from './HomePage.module.scss'
 import {useSelector,useDispatch} from 'react-redux'
 import { getArrayOfProducts,getFourProducts } from '../../Reducer'
 import { StateType } from '../../Redux/Redux';
+
+const Products = React.lazy(()=> import('../Products/Products') ) 
 
 const HomePage = () => {
   let FourProducts = useSelector((state:StateType) => state.MainReducer.FourProducts)
@@ -39,7 +40,11 @@ const HomePage = () => {
         <img src='/Img/for_comments.png'/>
       </div>
       <b className={s.Products}>Products</b>
-      <div><Products ArrayOfProducts={FourProducts} request={getFourProducts}/></div>
+      <div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Products ArrayOfProducts={FourProducts} request={getFourProducts}/>
+        </Suspense>
+      </div>
       <div className={s.MoreButton}>
       <NavLink to='/Shop' style={{ textDecoration: 'none' }}>
         <div>SEE MORE</div>

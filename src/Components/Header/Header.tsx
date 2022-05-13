@@ -40,7 +40,7 @@ const Header:FC<HeaderType> = () => {
             <b>About</b>
           </NavLink>
           
-          <NavLink style={{ textDecoration: 'none' }} to='/Contact'>
+          <NavLink style={{ textDecoration: 'none' }} to='/Contacts'>
             <b>Contact</b>
           </NavLink>
         </div>
