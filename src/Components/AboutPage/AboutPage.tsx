@@ -5,7 +5,7 @@ let About = () => {
     <div>
       <div className={s.SpacesHead}>
         <div className={s.HeadImg}>
-          <img src="/Img/About/1_About.png"/>
+          <img src="Img/About/1_About.png"/>
         </div>
         
         <div className={s.headDesc}>
@@ -33,12 +33,12 @@ let About = () => {
             <p>London Design Festival 2016</p>
           </div>
           <div className={s.unitImage}>
-            <img src="/Img/About/2_About.png"/>
+            <img src="Img/About/2_About.png"/>
           </div>
       </div>
       <div className={s.cartWrapperLeft}>
           <div className={s.unitImage}>
-            <img src="/Img/About/3_About.png"/>
+            <img src="Img/About/3_About.png"/>
           </div>
           <div className={s.text}>
             <p className={s.title}>GUESTapart/aarhus Hotel</p>
@@ -59,7 +59,7 @@ let About = () => {
             <p></p>
           </div>
           <div className={s.unitImage}>
-            <img src="/Img/About/4_About.png"/>
+            <img src="Img/About/4_About.png"/>
           </div>
       </div>
       <div className={s.unit}>
@@ -77,7 +77,7 @@ let About = () => {
             <p></p>
           </div>
           <div className={s.unitImage}>
-            <img src="/Img/About/5_About.png"/>
+            <img src="Img/About/5_About.png"/>
           </div>
       </div>
       <div className={s.cartWrapper}>
@@ -89,7 +89,7 @@ let About = () => {
             <p></p>
           </div>
           <div className={s.unitImage}>
-            <img src="/Img/About/6_About.png"/>
+            <img src="Img/About/6_About.png"/>
           </div>
       </div>
     </div>

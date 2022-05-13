@@ -14,7 +14,7 @@ const Workshops = () => {
      "ProductId": 7,
      "title": "CRASSULA HALO PLANTEPLANET",
      "price": 399,
-     "image": "/Img/Products/Crassula-smallleaf-planteplaneter-kajaskytte-hanginggarden-greenliving-danishdesign-565x565.png",
+     "image": "Img/Products/Crassula-smallleaf-planteplaneter-kajaskytte-hanginggarden-greenliving-danishdesign-565x565.png",
      "ProductsCount": 3}
     }
 
@@ -25,7 +25,7 @@ const Workshops = () => {
   return(
     <div>
       <div className={s.FrontImage}>
-        <img src='./Img/Workshop.png'/>
+        <img src='.Img/Workshop.png'/>
       </div>
       <div className={s.titleWrapper}>
         <p className={s.title}>WORKSHOPS</p>
@@ -36,7 +36,7 @@ const Workshops = () => {
           or in your workspace
       </p>
       <div className={s.Cart}>
-        <img width="400" src='/Img/Workshops/Workshop_1.png'/>
+        <img width="400" src='Img/Workshops/Workshop_1.png'/>
         <p>
           Planteplaneter is also a great way to spend time and do some hand work with a beautiful outcome. I organise workshops both for groups and individual people.
         </p>
@@ -45,10 +45,10 @@ const Workshops = () => {
         <p>
           If you want to take part in workshops by yourself have a look below to see what’s being planned
         </p>
-        <img  src='/Img/Workshops/Workshop_2.png'/>
+        <img  src='Img/Workshops/Workshop_2.png'/>
       </div>
       <div className={s.offerCart}>
-        <img src='/Img/Workshops/Workshop_3.png'/>
+        <img src='Img/Workshops/Workshop_3.png'/>
         <div className={s.offer}>
           <b className={s.offerTitle}>Planteplanet Workshop</b>
           <p>

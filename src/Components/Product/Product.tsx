@@ -92,13 +92,13 @@ return (
       <b>YOU MIGHT ALSO LIKE</b>
       <div className={s.alsoImage}>
         <NavLink to='/Products/8'>
-          <img src='/Img/Products/Crassula-smallleaf-planteplaneter-kajaskytte-hanginggarden-greenliving-danishdesign-565x565.png'/>
+          <img src='Img/Products/Crassula-smallleaf-planteplaneter-kajaskytte-hanginggarden-greenliving-danishdesign-565x565.png'/>
         </NavLink>
         <NavLink to='/Products/5'>
-          <img src='/Img/Products/crassula-large-kokadama-planteplaneter-kajaskytte-565x565.png'/>
+          <img src='Img/Products/crassula-large-kokadama-planteplaneter-kajaskytte-565x565.png'/>
         </NavLink>
         <NavLink to='/Products/7'>
-          <img src='/Img/Products/halo_plante_planteplanet_kajaSkytte_brass_planteplaneter_ring-565x565.png'/>
+          <img src='Img/Products/halo_plante_planteplanet_kajaSkytte_brass_planteplaneter_ring-565x565.png'/>
         </NavLink>
         
       </div>

@@ -5,7 +5,7 @@ let Spaces = () => {
     <div>
       <div className={s.About}>
       <p>ABOUT</p>
-      <img width='460' height='430' src='/Img/Footer_flower.png'/>
+      <img width='460' height='430' src='Img/Footer_flower.png'/>
         <div className={s.title}>
           <b>
             Planteplaneter are small decorative “planets”, designed as an alternative to the ordinary houseplant.
@@ -21,7 +21,7 @@ let Spaces = () => {
       
       <div>
         <div className={s.FrontImage}>
-          <img src='/Img/Spaces/Spaces.png'/>
+          <img src='Img/Spaces/Spaces.png'/>
         </div>
         <div className={s.coupleWrapper}>
           <div className={s.coupleDescription}>
@@ -52,13 +52,13 @@ let Spaces = () => {
         </div>
         </div>
         <div className={s.KajaImg}>
-          <img src='/Img/Spaces/kaja.png'/>
+          <img src='Img/Spaces/kaja.png'/>
         </div>
      
       </div>
       <div className={s.makers}>
         <div className={s.maker}>
-          <img src='/Img/Spaces/cecilie.png'/>
+          <img src='Img/Spaces/cecilie.png'/>
           <p>CECILIE</p>
           <p>
             PLANTEPLANET MAKER AND 
@@ -66,7 +66,7 @@ let Spaces = () => {
           </p>
         </div>
         <div className={s.maker}>
-          <img src='/Img/Spaces/natalie.png'/>
+          <img src='Img/Spaces/natalie.png'/>
           <p>NATALIE</p>
           <p>PLANTEPLANET MAKER</p>
         </div>

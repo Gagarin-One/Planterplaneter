@@ -23,7 +23,7 @@ function App() {
       <Header/>
       <Suspense fallback={<div><Preloader/></div>}>
         <Routes>
-            <Route path="/" element={<HomePage/>}/>
+            <Route path="/Home/" element={<HomePage/>}/>
             <Route path='/Search' element={<Search/>}/>
             <Route path="/Shopping_card" element={<ShoppingCard 
             counter={counter}

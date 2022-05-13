@@ -16,11 +16,11 @@ const Header:FC<HeaderType> = () => {
   return (
     <div className={s.Wrapper}>
       <div className={s.MainLogo}>
-      <img src='/Img/MainLogo.svg'/>
+      <img src='Img/MainLogo.svg'/>
       </div>
       <div className={s.MainSectionsWrapper}>
         <div className={s.SectionsWrapper}>
-          <NavLink style={{ textDecoration: 'none' }}  to='/'>
+          <NavLink style={{ textDecoration: 'none' }}  to='/Home'>
             <b className={s.Home}>Home</b>
           </NavLink>
             
@@ -67,7 +67,7 @@ const Header:FC<HeaderType> = () => {
       </div>
       </div> 
         
-      <img className={s.line} src='/Img/line.png'/>
+      <img className={s.line} src='Img/line.png'/>
     </div>
   )
 }
