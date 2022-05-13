@@ -1,9 +1,31 @@
 {
+<<<<<<< HEAD
+  "name": "flower-shop",
+=======
   "name": "gardens-app",
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
+<<<<<<< HEAD
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.1",
+    "@types/node": "^16.11.34",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.3",
+    "axios": "^0.27.2",
+    "node-sass": "^7.0.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-redux": "^8.0.1",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
+    "typescript": "^4.6.4",
+=======
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.4.1",
@@ -21,6 +43,7 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
     "typescript": "^4.6.3",
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
     "web-vitals": "^2.1.4"
   },
   "scripts": {

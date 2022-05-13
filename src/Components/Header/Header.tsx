@@ -3,8 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import s from './Header.module.scss'
 import { StateType } from '../../Redux/Redux';
+<<<<<<< HEAD
+
+import { GetShoppingCardArray } from '../../Reducer';
+=======
 import ShoppingCard from '../ShoppingCard/ShoppingCard.tsx';
 import { GetShoppingCardArray } from '../../Reducer.tsx';
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
 
 type HeaderType = {}
 const Header:FC<HeaderType> = () => {

@@ -1,7 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import ThunkMiddleware from "redux-thunk";
+<<<<<<< HEAD
+import MainReducer from "../Reducer"
+=======
 import MainReducer from "../Reducer.tsx"
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
 
 
 const reducers = combineReducers({

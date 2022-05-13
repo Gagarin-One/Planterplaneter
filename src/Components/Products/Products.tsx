@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
+<<<<<<< HEAD
+import { getArrayOfProducts,getProductItem  } from "../../Reducer";
+=======
 import { getArrayOfProducts,getProductItem  } from "../../Reducer.tsx";
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
 import s from './Products.module.scss'
 import { StateType } from '../../Redux/Redux';
 

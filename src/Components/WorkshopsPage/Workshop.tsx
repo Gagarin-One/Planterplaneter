@@ -1,7 +1,11 @@
 import s from './Workshop.module.scss'
 import { StateType } from '../../Redux/Redux';
 import { useSelector, useDispatch } from 'react-redux';
+<<<<<<< HEAD
+import { AddProductToShoppingCard } from '../../Reducer';
+=======
 import { AddProductToShoppingCard } from '../../Reducer.tsx';
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
 let Workshops = () => {
   let ShoppingCard = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
   const dispatch = useDispatch()

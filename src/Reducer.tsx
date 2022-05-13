@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+import React, { Dispatch } from "react";
+import { ThunkAction } from "redux-thunk";
+import { getProduct, GetArrayOfProducts,GetShoppingCard,ProductToShoppingCard,UpdateQuantityInShopCard,UpdateQuantityInArrayOfProducts,DeleteProductFromCard,GetFourProducts   } from './Api/api';
+import { ActionsTypePattern, StateType } from './Redux/Redux';
+=======
 import React from "react";
 import { ThunkAction } from "redux-thunk";
 import { getProduct, GetArrayOfProducts,GetShoppingCard,ProductToShoppingCard,UpdateQuantityInShopCard,UpdateQuantityInArrayOfProducts,DeleteProductFromCard,GetFourProducts   } from './Api/api.tsx';
 import { ActionsTypePattern, StateType } from './Redux/Redux.tsx';
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
 
 
 export type Product = {
@@ -66,6 +73,9 @@ const MainReducer = (state = initialState, action:ActionType):InitialStateType =
       return{
         ...state,CurrentProduct:action.CurrentProdObj
       }
+<<<<<<< HEAD
+    
+=======
     // case 'getProduct':
     //   for (let i = 0; i < state.ArrayOfProducts.length; i++) {
     //     if (state.ArrayOfProducts[i].id === action.ProductId){
@@ -78,6 +88,7 @@ const MainReducer = (state = initialState, action:ActionType):InitialStateType =
     //     ...state,CurrentProduct:p
     //   }
       
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
     case 'updateQuantityInCard':
       return{
         ...state,
@@ -121,10 +132,17 @@ export const Actions = {
 
 export type ActionType = ActionsTypePattern<typeof Actions>
 
+<<<<<<< HEAD
+type ThunkActionType = ThunkAction<Promise<void>,StateType,unknown,ActionType>
+export type DispatchType = Dispatch<ActionType>
+export const getRequestedProductItem = (id:number):ThunkActionType => {
+  return async (dispatch:DispatchType) => {
+=======
 export type ThunkActionType = ThunkAction<Promise<void>,StateType,unknown,ActionType>
 
 export const getRequestedProductItem = (id:number):ThunkActionType => {
   return async (dispatch) => {
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
     let response = await getProduct(id);
     for(let i = 0; i < response.length; i++) {
       dispatch(Actions.getProduct(response[i].data))
@@ -133,13 +151,21 @@ export const getRequestedProductItem = (id:number):ThunkActionType => {
 }
 
 export const getArrayOfProducts = () :ThunkActionType =>{
+<<<<<<< HEAD
+  return async (dispatch:DispatchType) =>{
+=======
   return async (dispatch) =>{
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
     let response = await GetArrayOfProducts()
     dispatch(Actions.getArrayOfProducts(response))
   }
 }
 export const getFourProducts = ():ThunkActionType => {
+<<<<<<< HEAD
+  return async (dispatch:DispatchType) =>{
+=======
   return async (dispatch) =>{
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
     let response = await GetFourProducts()
     dispatch(Actions.getFourProducts(response))
   }

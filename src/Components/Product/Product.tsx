@@ -2,7 +2,11 @@ import React, { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
+<<<<<<< HEAD
+import { getRequestedProductItem, AddProductToShoppingCard,UpdateQuantityInCard,Actions } from "../../Reducer";
+=======
 import { getRequestedProductItem, AddProductToShoppingCard,UpdateQuantityInCard,Actions } from "../../Reducer.tsx";
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
 import s from './Product.module.scss'
 import { StateType } from '../../Redux/Redux';
 
@@ -24,7 +28,10 @@ type ProductItemType = {
 const Product:FC<ProductType> = () => {
   let CurrentProduct = useSelector((state:StateType) => state.MainReducer.CurrentProduct)
   let ShoppingCard = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
+<<<<<<< HEAD
+=======
   let ProductsCount = useSelector((state:StateType) => state.MainReducer.ProductsCount)
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
 
   const dispatch = useDispatch()
   const Params = useParams()

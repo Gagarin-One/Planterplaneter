@@ -2,7 +2,11 @@ import React, { FC, useEffect, useState } from "react";
 import s from './ShoppingCard.module.scss';
 import { StateType } from '../../Redux/Redux';
 import { useDispatch, useSelector } from "react-redux";
+<<<<<<< HEAD
+import { GetShoppingCardArray,DeleteProductFromShoppingCard,UpdateQuantityInCard } from '../../Reducer';
+=======
 import { GetShoppingCardArray,DeleteProductFromShoppingCard,UpdateQuantityInCard } from '../../Reducer.tsx';
+>>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
 import { NavLink, useNavigate } from "react-router-dom";
 
 
