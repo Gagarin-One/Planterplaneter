@@ -1,21 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
-<<<<<<< HEAD
-import { getArrayOfProducts,getProductItem  } from "../../Reducer";
-=======
-import { getArrayOfProducts,getProductItem  } from "../../Reducer.tsx";
->>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
+import { Dispatch, FC, useEffect} from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from "react-router-dom";
+import {Product, ThunkActionType  } from "../../Reducer";
 import s from './Products.module.scss'
 import { StateType } from '../../Redux/Redux';
+import Preloader from "../Preloader/Preloader";
 
-const Products = ({ArrayOfProducts,request}) => {
-  let dispatch = useDispatch()
+type ProductType = {
+  ArrayOfProducts:Array<Product>
+  request:()=>ThunkActionType
+} 
 
-  useEffect(() =>{
-    dispatch(request())
-  },[])
+const Products:FC<ProductType> = ({ArrayOfProducts,request}) => {
+const dispatch:Dispatch<any> = useDispatch()
+const initialized = useSelector((state:StateType) => state.MainReducer.isInitialized)
+useEffect(() =>{
+  dispatch(request())
+},[])
+
   
+  if (initialized === false) {
+    return <Preloader/>
+  }
   return (
     <div className={s.wrapper}>
       {ArrayOfProducts.map((item) => {return <div key={item.id} className={s.ProductWrapper}>
@@ -26,7 +32,6 @@ const Products = ({ArrayOfProducts,request}) => {
             <b>{item.data.price}</b>
           </div>
         </NavLink>
-
       </div>
       })}
     </div>

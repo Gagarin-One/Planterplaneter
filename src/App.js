@@ -2,16 +2,18 @@ import { useState } from 'react';
 import { Route,Routes } from 'react-router-dom';
 import s from './App.module.scss'
 import Footer from './Components/footer/Footer';
-import Header from './Components/Header/Header.tsx';
-import HomePage from './Components/HomePage/HomePage.tsx';
-import Product from './Components/Product/Product.tsx';
-import ShopPage from './Components/ShopPage/ShopPage.jsx';
-import Workshops from './Components/WorkshopsPage/Workshop.tsx'
-import ShoppingCard from './Components/ShoppingCard/ShoppingCard.tsx';
-import Spaces from './Components/SpacesPage/Spaces.tsx';
-import About from './Components/AboutPage/AboutPage.tsx'
+import Header from './Components/Header/Header';
+import HomePage from './Components/HomePage/HomePage';
+import Product from './Components/Product/Product';
+import ShopPage from './Components/ShopPage/ShopPage';
+import Workshops from './Components/WorkshopsPage/Workshop'
+import ShoppingCard from './Components/ShoppingCard/ShoppingCard';
+import Spaces from './Components/SpacesPage/Spaces';
+import About from './Components/AboutPage/AboutPage'
+
 function App() {
   let [counter, setCounter] = useState(1)
+  
   return (
     <div className={s.App}>
       <Header/>

@@ -1,31 +1,18 @@
-import React, { FC, useEffect, useState } from "react";
+import { Dispatch, FC, useEffect } from "react";
 import s from './ShoppingCard.module.scss';
 import { StateType } from '../../Redux/Redux';
 import { useDispatch, useSelector } from "react-redux";
-<<<<<<< HEAD
-import { GetShoppingCardArray,DeleteProductFromShoppingCard,UpdateQuantityInCard } from '../../Reducer';
-=======
-import { GetShoppingCardArray,DeleteProductFromShoppingCard,UpdateQuantityInCard } from '../../Reducer.tsx';
->>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
-import { NavLink, useNavigate } from "react-router-dom";
-
-
+import { GetShoppingCardArray,DeleteProductFromShoppingCard,UpdateQuantityInCard, Product } from '../../Reducer';
+import { useNavigate } from "react-router-dom";
+import Preloader from "../Preloader/Preloader";
 
 type ShoppingCardType = {}
-type ProductItemType = {
-  id: number,
-  data:{
-    ProductId: number
-    title: string,
-    price: number,
-    image: string,
-    ProductsCount: number
-  }
-}
+
 const ShoppingCard:FC<ShoppingCardType> = () => {
-  let ShoppingCardArray = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
-  let navigate = useNavigate()
-  const dispatch = useDispatch()
+  const initialized = useSelector((state:StateType) => state.MainReducer.isInitialized)
+  const ShoppingCardArray = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
+  const navigate = useNavigate()
+  const dispatch:Dispatch<any> = useDispatch()
 
   let sumPrice = () => { 
     let sum:number = 0;
@@ -39,13 +26,13 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
     dispatch(DeleteProductFromShoppingCard(id))
   }
 
-  const OnIncrease = (Product:ProductItemType) => {
+  const OnIncrease = (Product:Product) => {
     let dataObj = {ProductsCount:Product.data.ProductsCount + 1}
     let obj = {...Product,...{data:{...Product.data,...dataObj}}}
     dispatch(UpdateQuantityInCard(obj))
 
   }
-  const OnDecrease = (Product:ProductItemType) => {
+  const OnDecrease = (Product:Product) => {
     let dataObj = {ProductsCount:Product.data.ProductsCount - 1}
     let obj = {...Product,...{data:{...Product.data,...dataObj}}}
     if (Product.data.ProductsCount > 1) {
@@ -56,11 +43,10 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
   useEffect(() =>{
     dispatch(GetShoppingCardArray())
   },[])
-
-  let clearCard = () => {
-
+  
+  if (initialized === false) {
+    return <Preloader/>
   }
-
   if(ShoppingCardArray.length === 0) {
   return <div className={s.emptyWrapper}>
       <div className={s.didntOrder}>You didn't order anything</div>
@@ -76,13 +62,13 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
         
       </div>
       <div className={s.ProductWrapper}>
-        {ShoppingCardArray.map((Product:ProductItemType) =>
+        {ShoppingCardArray.map((Product:Product) =>
         {return <div className={s.Product}>
           <div className={s.ProductImage}><img src={Product.data.image}/></div>
           <div>{Product.data.title}</div>
           <div className={s.counter}>
             <div className={s.Increase} onClick={() => OnIncrease(Product)}>+</div>
-            <div>{Product.data.ProductsCount}</div>
+              <div>{Product.data.ProductsCount}</div>
             <div className={s.Decrease} onClick={() => OnDecrease(Product)}>-</div>
           </div>
           <div className={s.Price}>{Product.data.price}</div>
@@ -95,9 +81,7 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
       <div className={s.bottomPanel}>
         <div className={s.leftTotal}>
           <p>Total count: {ShoppingCardArray.length} pieces</p>
-          
-            <button onClick={() => navigate(-1)} className={s.Back}>Go back</button>
-         
+          <button onClick={() => navigate(-1)} className={s.Back}>Go back</button>
         </div>
         <div className={s.rightTotal}>
           <p>Total price: {sumPrice()}</p>

@@ -1,25 +1,18 @@
-<<<<<<< HEAD
 import React, { Dispatch } from "react";
 import { ThunkAction } from "redux-thunk";
 import { getProduct, GetArrayOfProducts,GetShoppingCard,ProductToShoppingCard,UpdateQuantityInShopCard,UpdateQuantityInArrayOfProducts,DeleteProductFromCard,GetFourProducts   } from './Api/api';
 import { ActionsTypePattern, StateType } from './Redux/Redux';
-=======
-import React from "react";
-import { ThunkAction } from "redux-thunk";
-import { getProduct, GetArrayOfProducts,GetShoppingCard,ProductToShoppingCard,UpdateQuantityInShopCard,UpdateQuantityInArrayOfProducts,DeleteProductFromCard,GetFourProducts   } from './Api/api.tsx';
-import { ActionsTypePattern, StateType } from './Redux/Redux.tsx';
->>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
 
-
+export type DataType = {
+  ProductId: number
+  title: string,
+  price: number,
+  image: string,
+  ProductsCount: number
+}
 export type Product = {
   id: number,
-  data:{
-    ProductId: number
-    title: string,
-    price: number,
-    image: string,
-    ProductsCount: number
-  }
+  data:DataType
 }
 
 type InitialStateType = typeof initialState;
@@ -34,8 +27,9 @@ const initialState = {
     image: "/Img/1_product_image.svg"
     }
    }] as Array<Product>,
-  CurrentProduct:{} as Product,
-  ShoppingCard:[] as Array<Product>
+  CurrentProduct:{} as DataType,
+  ShoppingCard:[] as Array<Product>,
+  isInitialized:false as boolean
 }
 
 const MainReducer = (state = initialState, action:ActionType):InitialStateType => {
@@ -44,7 +38,7 @@ const MainReducer = (state = initialState, action:ActionType):InitialStateType =
 
     case 'getFourProducts':
       return{
-        ...state,FourProducts:action.fourProducts
+        ...state,FourProducts:action.fourProducts 
       }
 
     case 'getArrayOfProducts':
@@ -73,22 +67,7 @@ const MainReducer = (state = initialState, action:ActionType):InitialStateType =
       return{
         ...state,CurrentProduct:action.CurrentProdObj
       }
-<<<<<<< HEAD
     
-=======
-    // case 'getProduct':
-    //   for (let i = 0; i < state.ArrayOfProducts.length; i++) {
-    //     if (state.ArrayOfProducts[i].id === action.ProductId){
-          
-    //         let p = state.ArrayOfProducts[i]
-    //       return p
-    //     }
-    //   }
-    //   return{
-    //     ...state,CurrentProduct:p
-    //   }
-      
->>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
     case 'updateQuantityInCard':
       return{
         ...state,
@@ -109,6 +88,10 @@ const MainReducer = (state = initialState, action:ActionType):InitialStateType =
           return m;
         })
       }
+    case 'setInitialize':
+      return{
+        ...state,isInitialized:action.InitVal
+      }
 
     default:
       return state
@@ -118,62 +101,54 @@ const MainReducer = (state = initialState, action:ActionType):InitialStateType =
 export const Actions = {
   getFourProducts: (fourProducts:Array<Product>) =>({type:'getFourProducts',fourProducts} as const),
   getArrayOfProducts: (Products:Array<Product>) => ({type:'getArrayOfProducts', Products } as const),
-  getProduct: (Product:Product) => ({type:'getProduct', Product } as const),
-  getChangeProduct : (Product:Product) => ({type:'getChangeProduct', Product}),
+  getProduct: (Product:DataType) => ({type:'getProduct', Product } as const),
+  getChangeProduct : (Product:Product) => ({type:'getChangeProduct', Product} as const),
   GetShoppingCardArray:(CardArray:Array<Product>) => ({type:'getCardArray', CardArray} as const),
   AddToShoppingCard: (addToCard:Product) => ({type:'addToShoppingCard',addToCard} as const),
   DeleteProductFromShoppingCard: (deleteId:number) => ({type:'deleteProductFromShoppingCard', deleteId} as const),
   changeCounterInArrayOfProduct: (CounterId:number,num:number) => ({type:'changeCounterInArrayOfProduct', CounterId, num} as const),
-  changeCounterInCurrentProduct: (CurrentProdObj:Product) => ({type:'changeCounterInCurrentProduct', CurrentProdObj} as const),
-  
+  changeCounterInCurrentProduct: (CurrentProdObj:DataType) => ({type:'changeCounterInCurrentProduct', CurrentProdObj} as const),
   UpdateQuantityInCard: (obj:Product,UpdateId:number) => ({type:'updateQuantityInCard', obj, UpdateId} as const),
-  UpdateQuantityInProducts: (obj:Product,UpdateId:number) => ({type:'updateQuantityInProducts', obj, UpdateId} as const)
+  UpdateQuantityInProducts: (obj:Product,UpdateId:number) => ({type:'updateQuantityInProducts', obj, UpdateId} as const),
+  SetInitialize: (InitVal:boolean) => ({type:'setInitialize', InitVal} as const)
+
 }
 
 export type ActionType = ActionsTypePattern<typeof Actions>
 
-<<<<<<< HEAD
-type ThunkActionType = ThunkAction<Promise<void>,StateType,unknown,ActionType>
-export type DispatchType = Dispatch<ActionType>
-export const getRequestedProductItem = (id:number):ThunkActionType => {
-  return async (dispatch:DispatchType) => {
-=======
 export type ThunkActionType = ThunkAction<Promise<void>,StateType,unknown,ActionType>
 
 export const getRequestedProductItem = (id:number):ThunkActionType => {
   return async (dispatch) => {
->>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
-    let response = await getProduct(id);
+    dispatch(Actions.SetInitialize(false))
+    let response:any = await getProduct(id);
     for(let i = 0; i < response.length; i++) {
       dispatch(Actions.getProduct(response[i].data))
+      dispatch(Actions.SetInitialize(true)) 
     }
   }
 }
 
 export const getArrayOfProducts = () :ThunkActionType =>{
-<<<<<<< HEAD
-  return async (dispatch:DispatchType) =>{
-=======
   return async (dispatch) =>{
->>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
+    dispatch(Actions.SetInitialize(false))
     let response = await GetArrayOfProducts()
     dispatch(Actions.getArrayOfProducts(response))
+    dispatch(Actions.SetInitialize(true))
   }
 }
 export const getFourProducts = ():ThunkActionType => {
-<<<<<<< HEAD
-  return async (dispatch:DispatchType) =>{
-=======
   return async (dispatch) =>{
->>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
     let response = await GetFourProducts()
     dispatch(Actions.getFourProducts(response))
   }
 }
 export const GetShoppingCardArray = ():ThunkActionType =>{
   return async (dispatch) => {
+    dispatch(Actions.SetInitialize(false))
     let response = await GetShoppingCard()
     dispatch(Actions.GetShoppingCardArray(response))
+    dispatch(Actions.SetInitialize(true))
   }
 }
 
@@ -197,7 +172,6 @@ export const DeleteProductFromShoppingCard = (id:number):ThunkActionType =>{
 
 export const UpdateQuantityInCard = (obj:Product,isUpdateShopCard = false ):ThunkActionType =>{
   return async (dispatch,getState) =>{
-    
     UpdateQuantityInArrayOfProducts(obj,obj.data.ProductId)
     
     if(getState().MainReducer.ShoppingCard.length > 0){
@@ -206,8 +180,7 @@ export const UpdateQuantityInCard = (obj:Product,isUpdateShopCard = false ):Thun
       UpdateQuantityInShopCard(obj,getState().MainReducer.ShoppingCard[i].id)
     }}}
     isUpdateShopCard && dispatch(GetShoppingCardArray())
-    
-    // if(getState().MainReducer.ShoppingCard.length > 0) {UpdateQuantityInShopCard(obj,id)}
+
     dispatch(Actions.changeCounterInCurrentProduct(obj.data))
     dispatch(Actions.UpdateQuantityInProducts(obj,obj.data.ProductId))
     dispatch(Actions.UpdateQuantityInCard(obj,obj.data.ProductId))
@@ -215,4 +188,4 @@ export const UpdateQuantityInCard = (obj:Product,isUpdateShopCard = false ):Thun
 }
 
 export default MainReducer
-export type MainReducerType = typeof MainReducer
+//export type MainReducerType = typeof MainReducer

@@ -1,18 +1,17 @@
 import s from './Workshop.module.scss'
 import { StateType } from '../../Redux/Redux';
 import { useSelector, useDispatch } from 'react-redux';
-<<<<<<< HEAD
-import { AddProductToShoppingCard } from '../../Reducer';
-=======
-import { AddProductToShoppingCard } from '../../Reducer.tsx';
->>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
-let Workshops = () => {
+import { AddProductToShoppingCard, Product } from '../../Reducer';
+import { Dispatch } from 'react';
+
+
+const Workshops = () => {
   let ShoppingCard = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
-  const dispatch = useDispatch()
+  const dispatch:Dispatch<any> = useDispatch()
   const CurrentProduct = {
-    "id": "7",
+    "id": 7,
     "data": {
-     "ProductId": "7",
+     "ProductId": 7,
      "title": "CRASSULA HALO PLANTEPLANET",
      "price": 399,
      "image": "/Img/Products/Crassula-smallleaf-planteplaneter-kajaskytte-hanginggarden-greenliving-danishdesign-565x565.png",
@@ -20,7 +19,7 @@ let Workshops = () => {
     }
 
   let AddToCard = () => {
-    ShoppingCard.every((obj:ProductItemType) => obj.data.ProductId !== CurrentProduct.data.ProductId) &&
+    ShoppingCard.every((obj:Product) => obj.data.ProductId !== CurrentProduct.data.ProductId) &&
     dispatch(AddProductToShoppingCard(CurrentProduct))
   }
   return(

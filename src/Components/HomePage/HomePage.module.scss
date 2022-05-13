@@ -158,3 +158,11 @@
     width:320px;
   }
 }
+//for safari
+@media not all and (min-resolution:.001dpcm)
+{ @supports (-webkit-appearance:none) {
+    .shop { 
+      margin-top:clamp(100px, 25vw, 300px);
+    }
+    
+}}

@@ -1,16 +1,9 @@
 import React, { useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-<<<<<<< HEAD
 import Products from '../Products/Products'
 import s from './HomePage.module.scss'
 import {useSelector,useDispatch} from 'react-redux'
 import { getArrayOfProducts,getFourProducts } from '../../Reducer'
-=======
-import Products from '../Products/Products.tsx'
-import s from './HomePage.module.scss'
-import {useSelector,useDispatch} from 'react-redux'
-import { getArrayOfProducts,getFourProducts } from '../../Reducer.tsx'
->>>>>>> 21fa5505a223f75af8ff919ade0741e0a340a1aa
 import { StateType } from '../../Redux/Redux';
 
 const HomePage = () => {
@@ -35,7 +28,7 @@ const HomePage = () => {
           <img className={s.spaces} src='/Img/4_Image_Navigate.png'/>
         </Link>
         <NavLink style={{ textDecoration: 'none' }} className={s.shop} to='/Shop'>
-          <div >SHOP</div>
+          <div className={s.shopTitle}>SHOP</div>
         </NavLink>
       </div>
       <div className={s.commentWrapper}>

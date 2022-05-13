@@ -22,7 +22,6 @@ let Spaces = () => {
       <div>
         <div className={s.FrontImage}>
           <img src='/Img/Spaces/Spaces.png'/>
-          
         </div>
         <div className={s.coupleWrapper}>
           <div className={s.coupleDescription}>
