@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/563.4f4f652f.chunk.css","mappings":"AAAA,sBAEE,cAAa,CADb,eACc,CACf,wBAEC,iBAAiB,CAClB,EAGC,cAAa,CADb,iBACc","sources":["Components/ContactPage/Contact.module.scss"],"sourcesContent":[".title{\n  font-weight:bold;\n  font-size:40px;\n}\n.wrapper{\n  margin:70px 200px;\n}\np{\n  margin-bottom: 5px;\n  font-size:20px;\n}"],"names":[],"sourceRoot":""}
