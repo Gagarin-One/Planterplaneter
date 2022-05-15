@@ -3,8 +3,8 @@
   margin:105px 103px 300px ;
   grid-template-columns: repeat(auto-fit,minmax(274px,1fr));
   gap:45px;
-
 }
+
 .ProductWrapper{
   max-width: 274px;
   &:hover{
@@ -23,19 +23,17 @@
     width:50px;
     margin: 0 auto;
     color:black;
-    
   }
   img{
     width: 274px;
-height: 274px;
-    
+    height: 274px;
   }
-  
 }
+
 input{
   padding: 15px;
   font-size: 16px;
-line-height: 17px;
-font-family: 'Inter';
-margin: 50px 100px;
+  line-height: 17px;
+  font-family: 'Inter';
+  margin: 50px 100px;
 }

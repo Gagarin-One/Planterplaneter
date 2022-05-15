@@ -1,4 +1,4 @@
-import s from './AboutPage.module.scss';
+import s from './Spaces.module.scss';
 
 let About = () => {
   return (
@@ -71,7 +71,6 @@ let About = () => {
             <p className={s.description}>
             Planteplaneter were featured at Georg Jensen’s stand at the Milano Fair 2015, hanging in a adorable little rustic restaurant – Taglio Dinner.
             They added a special twist to the dinner table, creating a natural ice breaker for the attending guests.
-
             Stylist: Pernille Vest
             </p>
             <p></p>

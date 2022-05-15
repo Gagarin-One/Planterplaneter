@@ -1,15 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import ThunkMiddleware from "redux-thunk";
-import MainReducer from "../Reducer"
-
+import MainReducer from "./Reducer"
 
 const reducers = combineReducers({
   MainReducer: MainReducer
 })
-
-// I took an example of typing Action type from an article by the guys from Alfa bank:
-// https://habr.com/ru/company/alfa/blog/452620/
 
 type InferValueTypes<T> = T extends {[key: string]: infer U} ? U : never;
 

@@ -1,12 +1,10 @@
 import s from './Workshop.module.scss'
 import { StateType } from '../../Redux/Redux';
 import { useSelector, useDispatch } from 'react-redux';
-import { AddProductToShoppingCard, Product } from '../../Reducer';
+import { AddProductToShoppingCard, Product } from '../../Redux/Reducer';
 import { Dispatch } from 'react';
-
-
 const Workshops = () => {
-  let ShoppingCard = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
+  const ShoppingCard = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
   const dispatch:Dispatch<any> = useDispatch()
   const CurrentProduct = {
     "id": 7,
@@ -24,12 +22,12 @@ const Workshops = () => {
   }
   return(
     <div>
-      <div className={s.FrontImage}>
-        <img src='.Img/Workshop.png'/>
-      </div>
       <div className={s.titleWrapper}>
         <p className={s.title}>WORKSHOPS</p>
         <p className={s.description}>Learn how to make magic hanging sculptures</p>
+      </div>
+      <div className={s.FrontImage}>
+        <img src='Img/Workshop.png'/>
       </div>
       <p className={s.WorkshopsDesc}>
         DIY classes in our studio

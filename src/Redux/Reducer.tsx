@@ -1,7 +1,7 @@
-import React, { Dispatch } from "react";
+import { Dispatch } from "react";
 import { ThunkAction } from "redux-thunk";
-import { getProduct, GetArrayOfProducts,GetShoppingCard,ProductToShoppingCard,UpdateQuantityInShopCard,UpdateQuantityInArrayOfProducts,DeleteProductFromCard,GetFourProducts   } from './Api/api';
-import { ActionsTypePattern, StateType } from './Redux/Redux';
+import { getProduct, GetArrayOfProducts,GetShoppingCard,ProductToShoppingCard,UpdateQuantityInShopCard,UpdateQuantityInArrayOfProducts,DeleteProductFromCard,GetFourProducts   } from '../Api/api';
+import { ActionsTypePattern, StateType } from './Redux';
 
 export type DataType = {
   ProductId: number
@@ -31,6 +31,7 @@ const initialState = {
   ShoppingCard:[] as Array<Product>,
   isInitialized:false as boolean
 }
+
 
 const MainReducer = (state = initialState, action:ActionType):InitialStateType => {
 
@@ -111,7 +112,6 @@ export const Actions = {
   UpdateQuantityInCard: (obj:Product,UpdateId:number) => ({type:'updateQuantityInCard', obj, UpdateId} as const),
   UpdateQuantityInProducts: (obj:Product,UpdateId:number) => ({type:'updateQuantityInProducts', obj, UpdateId} as const),
   SetInitialize: (InitVal:boolean) => ({type:'setInitialize', InitVal} as const)
-
 }
 
 export type ActionType = ActionsTypePattern<typeof Actions>
@@ -139,8 +139,10 @@ export const getArrayOfProducts = () :ThunkActionType =>{
 }
 export const getFourProducts = ():ThunkActionType => {
   return async (dispatch) =>{
+    dispatch(Actions.SetInitialize(false))
     let response = await GetFourProducts()
     dispatch(Actions.getFourProducts(response))
+    dispatch(Actions.SetInitialize(true))
   }
 }
 export const GetShoppingCardArray = ():ThunkActionType =>{
@@ -165,10 +167,15 @@ export const DeleteProductFromShoppingCard = (id:number):ThunkActionType =>{
     {if(getState().MainReducer.ShoppingCard[i].data.ProductId === id){
       DeleteProductFromCard(getState().MainReducer.ShoppingCard[i].id)
     }}
-
     dispatch(Actions.DeleteProductFromShoppingCard(id))
   }
 }
+
+  // Я использовал в качестве api сервера 'Mock api'.
+  // Он сам меняет id объекта во время post запроса.
+  // Из-за этого нельзя сравнивать id одного продукта в двух разных массивах, т.к id разные.
+  // По этому когда я вызываю Thunk, я сравниваю ProductId ,
+  // а уже потом делаю put запрос с нужным для изменения id.
 
 export const UpdateQuantityInCard = (obj:Product,isUpdateShopCard = false ):ThunkActionType =>{
   return async (dispatch,getState) =>{
@@ -188,4 +195,3 @@ export const UpdateQuantityInCard = (obj:Product,isUpdateShopCard = false ):Thun
 }
 
 export default MainReducer
-//export type MainReducerType = typeof MainReducer

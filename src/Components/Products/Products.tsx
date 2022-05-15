@@ -1,7 +1,7 @@
 import { Dispatch, FC, useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
-import {Product, ThunkActionType  } from "../../Reducer";
+import {Product, ThunkActionType } from "../../Redux/Reducer";
 import s from './Products.module.scss'
 import { StateType } from '../../Redux/Redux';
 import Preloader from "../Preloader/Preloader";

@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux"
-import { getArrayOfProducts } from "../../Reducer"
+import { getArrayOfProducts } from "../../Redux/Reducer"
 import Products from "../Products/Products"
+import { StateType } from '../../Redux/Redux';
 
 let ShopPage = () => {
-  let ArrayOfProducts = useSelector((state) => state.MainReducer.ArrayOfProducts)
+  const ArrayOfProducts = useSelector((state:StateType) => state.MainReducer.ArrayOfProducts)
   return (
     <div>
       <Products ArrayOfProducts={ArrayOfProducts} request={getArrayOfProducts}/>

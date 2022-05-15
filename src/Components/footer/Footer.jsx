@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import NavigationLinks from "../NavigationLinks/NavigationLinks";
 import s from './footer.module.scss'
 
 const Footer = () => {
@@ -6,29 +6,12 @@ return (
   <div>
     <div className={s.footer}>
         <div className={s.footerWrapper}>
-          <NavLink style={{ textDecoration: 'none', marginBottom:'10px'}}  to='/Home/'>
-            <b >Home</b>
-          </NavLink>
-            
-          <NavLink style={{ textDecoration: 'none', marginBottom:'10px' }} to='/Shop'>
-            <b>Shop</b>
-          </NavLink>
-
-          <NavLink style={{ textDecoration: 'none', marginBottom:'10px' }} to='/Workshops'>
-            <b>Workshops</b>
-          </NavLink>
-
-          <NavLink style={{ textDecoration: 'none', marginBottom:'10px' }} to='/Spaces'>
-            <b>Spaces</b>
-          </NavLink>
-            
-          <NavLink style={{ textDecoration: 'none', marginBottom:'10px' }} to='/About'>
-            <b>About</b>
-          </NavLink>
-          
-          <NavLink style={{ textDecoration: 'none', marginBottom:'10px' }} to='/Contact'>
-            <b>Contact</b>
-          </NavLink>
+          <NavigationLinks Link={'Home'}/>
+          <NavigationLinks Link={'Shop'}/>
+          <NavigationLinks Link={'Workshops'}/> 
+          <NavigationLinks Link={'Spaces'}/> 
+          <NavigationLinks Link={'About'}/> 
+          <NavigationLinks Link={'Contacts'}/>  
         </div >
         <p className={s.contact}>  PHONE: +45 30 22 82 20 EMAIL: kaja@kajaskytte.dk CVR: 36353481
         </p>
@@ -43,14 +26,9 @@ return (
             <img src='Img/mobilepay.png'/>
             <img src='Img/amex.png'/>
           </div>
-      
-        
       </div>
       <img src='Img/line.png'/>
   </div>
-  
-  
 )
 }
-
 export default Footer

@@ -2,21 +2,21 @@
   display:flex;
   justify-content:center;
   margin:12px auto 24px auto;
-  
 }
 
 .SectionsWrapper{
   display:flex;
-  flex-wrap: wrap;
   width: 600px;
   height: auto;
   justify-content: space-between;
-  margin:0 auto 9px;
-  b:hover{
-    color:rgb(102, 102, 102)
-  }
+  margin:0 auto 9px ;
   .Home{
-    margin-left: 150px;
+    margin-left:150px;
+  }
+  b{
+    &:hover{
+      color:rgb(102, 102, 102)
+    }
   }
 }
 
@@ -29,18 +29,17 @@ b{
 .SearchAndUser svg path {
   stroke:inherit;
   stroke-width:inherit;
-  }
-  .SideSection:hover {
+}
+
+.SideSection:hover {
   fill:#9B9B9B;
-  }
+}
 
 .MainSectionsWrapper {
   display:flex;
-  
 } 
 
-.SideSectionsWrapper{
-  
+.SideSectionsWrapper{  
   display:flex;
   width: 150.07px;
   height: 15.87px;

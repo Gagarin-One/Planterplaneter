@@ -2,7 +2,7 @@ import { Dispatch, FC, useEffect } from "react";
 import s from './ShoppingCard.module.scss';
 import { StateType } from '../../Redux/Redux';
 import { useDispatch, useSelector } from "react-redux";
-import { GetShoppingCardArray,DeleteProductFromShoppingCard,UpdateQuantityInCard, Product } from '../../Reducer';
+import { GetShoppingCardArray,DeleteProductFromShoppingCard,UpdateQuantityInCard, Product } from '../../Redux/Reducer';
 import { useNavigate } from "react-router-dom";
 import Preloader from "../Preloader/Preloader";
 
@@ -44,32 +44,38 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
     dispatch(GetShoppingCardArray())
   },[])
   
+  if(ShoppingCardArray.length === 0) {
+    return <div className={s.emptyWrapper}>
+        <div className={s.didntOrder}>You didn't order anything</div>
+      </div> 
+      }
   if (initialized === false) {
     return <Preloader/>
   }
-  if(ShoppingCardArray.length === 0) {
-  return <div className={s.emptyWrapper}>
-      <div className={s.didntOrder}>You didn't order anything</div>
-    </div> 
-    }
 
   return <div className={s.wrapper}>
       <div className={s.header}>
         <div className={s.left}>
-          <img src='/Img/shopIcon.svg'/>
+          <img src='Img/ShopIcon.svg'/>
           <p>Shopping card</p>
         </div>
-        
       </div>
       <div className={s.ProductWrapper}>
         {ShoppingCardArray.map((Product:Product) =>
         {return <div className={s.Product}>
-          <div className={s.ProductImage}><img src={Product.data.image}/></div>
+
+          <div className={s.ProductImage}>
+            <img src={Product.data.image}/>
+          </div>
+
           <div>{Product.data.title}</div>
+
           <div className={s.counter}>
+
             <div className={s.Increase} onClick={() => OnIncrease(Product)}>+</div>
               <div>{Product.data.ProductsCount}</div>
             <div className={s.Decrease} onClick={() => OnDecrease(Product)}>-</div>
+
           </div>
           <div className={s.Price}>{Product.data.price}</div>
           <svg onClick={()=>remove(Product.data.ProductId)} className={s.remove} width="32" height="32" viewBox="0 0 32 32" fill="#D7D7D7" xmlns="http://www.w3.org/2000/svg">
@@ -87,9 +93,7 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
           <p>Total price: {sumPrice()}</p>
           <button className={s.PayNow}>Pay now</button>
         </div>      
-      </div>
-               
+      </div>      
     </div>
-  
 }
 export default ShoppingCard

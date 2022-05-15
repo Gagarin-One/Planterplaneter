@@ -2,12 +2,11 @@ import React, { Dispatch, FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
-import { getRequestedProductItem, AddProductToShoppingCard,UpdateQuantityInCard,Actions } from "../../Reducer";
+import { getRequestedProductItem, AddProductToShoppingCard,UpdateQuantityInCard,Actions } from "../../Redux/Reducer";
 import s from './Product.module.scss'
 import { StateType } from '../../Redux/Redux';
 
 type ProductType = {
-  
 } 
 
 const Product:FC<ProductType> = () => {
@@ -21,6 +20,7 @@ const Product:FC<ProductType> = () => {
   useEffect(() =>{
     dispatch(getRequestedProductItem(currentId))
   },[])
+
   const OnIncrease = () => {
     let dataObj ={...CurrentProduct,...{ProductsCount:CurrentProduct.ProductsCount + 1}}
     let obj = {id:CurrentProduct.ProductId,data:dataObj}
@@ -39,7 +39,6 @@ const Product:FC<ProductType> = () => {
     ShoppingCard.every((obj) => obj.data.ProductId !== CurrentProduct.ProductId) &&
     dispatch(AddProductToShoppingCard({id:CurrentProduct.ProductId,data:CurrentProduct}))
   }
-  
   
 return (
   <div>
@@ -71,7 +70,6 @@ return (
           <b>Sizes (measured by the diameter of the coconut ball)</b>
           <p>
             Note that sizes may vary slightly
-            
           </p>
           <div className={s.sizes}>
             <b>Medium: App. 10 cm</b>
@@ -100,12 +98,10 @@ return (
         <NavLink to='/Products/7'>
           <img src='Img/Products/halo_plante_planteplanet_kajaSkytte_brass_planteplaneter_ring-565x565.png'/>
         </NavLink>
-        
       </div>
       <NavLink to='/Shop' style={{ textDecoration: 'none' }}>
       <button>SEE MORE</button>
       </NavLink>
-      
     </div>
   </div>
 )

@@ -1,0 +1,208 @@
+.About{
+  display:flex;
+  max-width: 1087px;
+  justify-content:space-between;
+  margin:38px auto 40px;
+  >p{
+    position:absolute;
+    font-size:77px;
+    font-weight:bold;
+    margin-top:60px;
+    text-shadow: 0 0px 12px rgb(255, 255, 255);
+    margin-left:10px;
+  }
+  img{
+    margin-top:40px;
+  }
+  .title{
+    margin:124px 20px 150px 0 ;
+    max-width: 658px;
+
+    b{
+      font-size:32px;
+      line-height:38px; 
+    }
+
+    p{
+      margin-top:20px;
+      font-weight: 100;
+      font-size:18px;
+      line-height:28px;
+    }
+  }
+}
+
+.FrontImage{
+  position:absolute;
+  img{
+    width:100%}
+}
+@media screen and (max-width:800px) {
+  .FrontImage{
+    position:absolute;
+    img{
+      width:800px}
+  }
+  .coupleDescription{
+    margin-top:10%;
+    width: 200px;
+    height:175px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 21px;
+  
+    &:first-of-type{
+      margin-left: 17%;
+      margin-right: 13%;
+    }
+  
+    .coupleTitle{
+      margin:7% 10% 5%;
+      font-weight: 600;
+      text-align:center;
+      font-size:15px;
+      }
+  
+    p{
+      font-family: 'Poppins';
+      margin:0 8% 10%;
+      font-size: 13px;
+      text-align: center;
+      line-height:1.0;
+    }
+  }
+  
+  .KajaText{
+    position: relative;
+    z-index: 2;
+    width: 300px;
+    height: 270px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 15px;
+    font-size: 14px;
+    padding:23px 67px;
+    left:15%;
+    margin-bottom: 100px;
+  }
+  
+  .KajaImg{
+    width:300px;
+    position: relative;
+    margin:15% 0 197px auto;
+    right:13%;
+    img{
+      width:300px
+    }
+  }
+  
+  .KajaTitle{
+    position: relative;
+    z-index: 2;
+    margin-top: 250px;
+    left:25%;
+    b{
+      z-index: 3;
+      font-size: 30px;
+      font-family: 'Poppins';
+      text-shadow: 0px 0px 14px rgb(255, 255, 255);
+      weight: bold;
+    }
+  }
+}
+@media screen and (min-width:800px){
+  .coupleDescription{
+    margin-top:10%;
+    max-width: 377.11px;
+    max-height: 296.89px;
+    width: 25vw;
+    height: 20vw;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 21px;
+  
+    &:first-of-type{
+      margin-left: 17%;
+      margin-right: 13%;
+    }
+  
+    .coupleTitle{
+      margin:7% 10% 5%;
+      font-weight: 600;
+      text-align:center;
+      font-size:1.7vw;
+      }
+  
+    p{
+      font-family: 'Poppins';
+      margin:0 8% 10%;
+      font-size: calc(0.70em + 0.3vw);
+      text-align: center;
+      line-height:1.5vw;
+    }
+  }
+  
+  .KajaText{
+    position: relative;
+    z-index: 2;
+    width: 38vw;
+    height: 28vw;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 15px;
+    font-size: 1.6vw;
+    padding:23px 67px;
+    left:15%;
+  }
+  
+  .KajaImg{
+    max-width:40vw;
+    position: relative;
+    margin:15% 0 197px auto;
+    right:13%;
+    img{
+      width:43vw
+    }
+  }
+  
+  .KajaTitle{
+    position: relative;
+    z-index: 2;
+    margin-top: 55%;
+    left:25%;
+    b{
+      z-index: 3;
+      font-size: 4vw;
+      font-family: 'Poppins';
+      text-shadow: 0px 0px 14px rgb(255, 255, 255);
+      weight: bold;
+    }
+  }
+}
+.coupleWrapper{
+  display:flex;
+  position:relative;
+  z-index: 2;
+  margin:0 auto;
+}
+
+.Kaja{
+  display:flex;
+}
+
+.makers{
+  max-width:1062px;
+  display:flex;
+  justify-content:space-between;
+  margin:0 auto 300px;
+  .maker{
+    p{
+      text-align: center;
+      font-size: 24px;
+      width: 333px;
+      margin-top:20px;
+      margin-left: 35px;
+      &:first-of-type{
+        font-size: 48px;
+      }
+    }
+  }
+}

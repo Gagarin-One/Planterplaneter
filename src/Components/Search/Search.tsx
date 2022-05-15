@@ -3,7 +3,7 @@ import { StateType } from '../../Redux/Redux';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { getArrayOfProducts } from '../../Reducer';
+import { getArrayOfProducts } from '../../Redux/Reducer';
 import Preloader from '../Preloader/Preloader';
 
 const Search = () => {
@@ -12,6 +12,7 @@ const Search = () => {
   let [SearchValue, setSearchValue] = useState('') 
 
   const dispatch:any = useDispatch()
+  
   useEffect(() =>{
     dispatch(getArrayOfProducts())
   },[])
@@ -44,6 +45,5 @@ const Search = () => {
       </div>
     </div>
   )
-
 }
 export default Search

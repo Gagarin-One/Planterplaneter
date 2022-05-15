@@ -2,13 +2,15 @@ import React, { Suspense, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import s from './HomePage.module.scss'
 import {useSelector,useDispatch} from 'react-redux'
-import { getArrayOfProducts,getFourProducts } from '../../Reducer'
+import { getArrayOfProducts,getFourProducts } from '../../Redux/Reducer'
 import { StateType } from '../../Redux/Redux';
 
 const Products = React.lazy(()=> import('../Products/Products') ) 
 
-const HomePage = () => {
-  let FourProducts = useSelector((state:StateType) => state.MainReducer.FourProducts)
+  const HomePage = () => {
+    const dispatch:any = useDispatch()
+    let FourProducts = useSelector((state:StateType) => state.MainReducer.FourProducts)
+  
   return(
     <div>
   <div>

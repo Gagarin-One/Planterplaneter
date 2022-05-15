@@ -12,7 +12,6 @@
 .NavigationWithPictures{
   max-width:1300px;
   margin: -100px auto 66px ;
-  
   display:grid;
   align-items: center;
   grid-template-columns: repeat(2, minmax(240px, 1fr));
@@ -26,10 +25,10 @@
   }
   .shop{
     position: absolute;
-    left:45%;
+    left:clamp(360px,45%, 2000px);
     font-weight: 700;
     color: #3A6516;
-    font-size: 4vw;
+    font-size: clamp(30px,4vw ,100px);
     &:hover{
       opacity: 0.8
     }
@@ -60,13 +59,11 @@
     
   }
   img:last-of-type{
-    // min-width: 20%;
     width: 50%;
     margin-left:auto;
-    
-    
   }
 }
+
 .Products{
   display:flex;
   justify-content:center;
@@ -158,6 +155,7 @@
     width:320px;
   }
 }
+
 //for safari
 @media not all and (min-resolution:.001dpcm)
 { @supports (-webkit-appearance:none) {

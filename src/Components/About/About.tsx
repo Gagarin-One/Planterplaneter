@@ -1,4 +1,4 @@
-import s from './Spaces.module.scss'
+import s from './About.module.scss'
 
 let Spaces = () => {
   return(
