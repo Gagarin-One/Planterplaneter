@@ -128,15 +128,15 @@
       margin:7% 10% 5%;
       font-weight: 600;
       text-align:center;
-      font-size:1.7vw;
+      font-size:clamp(10px,1.7vw,25px);
       }
   
     p{
       font-family: 'Poppins';
       margin:0 8% 10%;
-      font-size: calc(0.70em + 0.3vw);
+      font-size: clamp(10px,1.4vw,20px);
       text-align: center;
-      line-height:1.5vw;
+      line-height:1;
     }
   }
   
@@ -144,22 +144,26 @@
     position: relative;
     z-index: 2;
     width: 38vw;
+    max-width: 588px;
     height: 28vw;
+    max-height: 500px;
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.12);
     border-radius: 15px;
-    font-size: 1.6vw;
+    font-size: clamp(10px,1.6vw,25px);
     padding:23px 67px;
     left:15%;
   }
   
   .KajaImg{
-    max-width:40vw;
+    width:40vw;
+    max-width: 678px;
     position: relative;
     margin:15% 0 197px auto;
     right:13%;
     img{
-      width:43vw
+      width:40vw;
+      max-width: 678px;
     }
   }
   
