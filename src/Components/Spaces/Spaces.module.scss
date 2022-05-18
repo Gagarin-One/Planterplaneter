@@ -8,6 +8,7 @@
       margin-left:40px;
       width: 34vw;
       min-width: 300px;
+      max-width: 558px;
     }
     
   }
@@ -51,7 +52,9 @@
 .unitImage{
   margin-left: 20px;
   img{
-    width:clamp(368px 50% 1000px);
+    width: 45vw;
+    min-width:380px;
+    max-width:570px;
     margin-right:102px;
   }
 }
@@ -73,6 +76,7 @@
     max-height: 234px;
   }
   .description{
+    min-width: 250px;
     margin-top: 20px;
     font-size: 20px;
   }
@@ -86,15 +90,15 @@
   justify-content:space-between;
   margin-bottom:140px;
 
-  // .unitImage{
-  //   margin-right: 40px;
-  //   img{
-  //     width:38vw;
-  //     max-width: 601px;
-  //     max-height: 439px;
-  //     margin-left:102px;
-  //   }
-  // }
+  .unitImage{
+    margin-right: 40px;
+    img{
+      width:38vw;
+      max-width: 601px;
+      max-height: 439px;
+      margin-left:102px;
+    }
+  }
   .title{
     margin-top:20%;
     
