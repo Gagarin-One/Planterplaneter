@@ -19,7 +19,19 @@ Project is created with:
 * Saas
 * axios
 ## Problems that have arisen
+<img width="926" alt="image" src="https://user-images.githubusercontent.com/92833239/172647077-8904c542-4e64-4dcd-adcd-eeefc1431b72.png">
 <p>I used the "Mock Api" as the server api. It has several conventions (it automatically sets the id for elements, which makes it difficult to find elements between different arrays), I had to do additional checks for additional ones when making requests to the server.</p>
+
+
+```
+for (let i = 0; i < getState().MainReducer.ShoppingCard.length; i++)
+    {if(getState().MainReducer.ShoppingCard[i].data.ProductId === obj.data.ProductId){
+      UpdateQuantityInShopCard(obj,getState().MainReducer.ShoppingCard[i].id)
+        }
+      }
+    }
+```
+
 <p>In this project several elements are absolutely located (position: absolute), there was a difference when displaying elements in safari and chrome, which I solved for safari in the following way</p>	
 
 ```
