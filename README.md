@@ -16,8 +16,8 @@ Project is created with:
 * Redux 
 * Redux-thunk
 * Typescript
-* Saas
-* axios
+* Scss
+* Axios
 ## Problems that have arisen
 <img width="926" alt="image" src="https://user-images.githubusercontent.com/92833239/172647077-8904c542-4e64-4dcd-adcd-eeefc1431b72.png">
 <p>I used the "Mock Api" as the server api. It has several conventions (it automatically sets the id for elements, which makes it difficult to find elements between different arrays), I had to do additional checks for additional ones when making requests to the server.</p>
