@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Product } from '../Redux/Reducer';
+import { Product } from '../Store/Reducer';
 
 
 type getProductsType = Array<Product>

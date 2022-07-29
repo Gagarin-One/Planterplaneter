@@ -4,7 +4,7 @@ let Spaces = () => {
   return(
     <div>
       <div className={s.About}>
-      <p>ABOUT</p>
+      <b>ABOUT</b>
       <img width='460' height='430' src='Img/Footer_flower.png'/>
         <div className={s.title}>
           <b>
@@ -25,13 +25,13 @@ let Spaces = () => {
         </div>
         <div className={s.coupleWrapper}>
           <div className={s.coupleDescription}>
-            <p className={s.coupleTitle}>FREE SHIPPING IN DK</p>
+            <h3 className={s.coupleTitle}>FREE SHIPPING IN DK</h3>
             <p>
               We are shipping all around Europe within 1-10 working days. Shipping in all of  Denmark with GLS is free and we have a flat rate of 120kr for the rest of Europe with UPS.
             </p>
           </div>
           <div className={s.coupleDescription}>
-            <p className={s.coupleTitle}>GREEN CARE</p>
+            <h3 className={s.coupleTitle}>GREEN CARE</h3>
             <p>
               We handle all our handmade Planteplaneter carefully. If you have any questions or concerns we are here to help. Please send an email to info@kajaskytte.dk and we will get back to you as quickly as possible.
             </p>

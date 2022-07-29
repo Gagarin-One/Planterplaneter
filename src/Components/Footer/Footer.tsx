@@ -15,7 +15,7 @@ return (
         </div >
         <p className={s.contact}>  PHONE: +45 30 22 82 20 EMAIL: kaja@kajaskytte.dk CVR: 36353481
         </p>
-        <img src='Img/Footer_flower.png'/>
+          <img src='Img/Footer_flower.png'/>
           <div className={s.discount}>
             <p> GET 10% OFF SIGN UP FOR</p>
             <p> YOUR NEXT ORDER A NEWSLETTER</p>
@@ -26,8 +26,7 @@ return (
             <img src='Img/mobilepay.png'/>
             <img src='Img/amex.png'/>
           </div>
-      </div>
-      <img src='Img/line.png'/>
+    </div>
   </div>
 )
 }

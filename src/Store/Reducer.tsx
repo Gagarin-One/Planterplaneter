@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
 import { ThunkAction } from "redux-thunk";
 import { getProduct, GetArrayOfProducts,GetShoppingCard,ProductToShoppingCard,UpdateQuantityInShopCard,UpdateQuantityInArrayOfProducts,DeleteProductFromCard,GetFourProducts   } from '../Api/api';
-import { ActionsTypePattern, StateType } from './Redux';
+import { ActionsTypePattern, StateType } from './Store';
 
 export type DataType = {
   ProductId: number

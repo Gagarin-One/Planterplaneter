@@ -1,11 +1,12 @@
 import s from './Workshop.module.scss'
-import { StateType } from '../../Redux/Redux';
+import { StateType } from '../../Store/Store';
 import { useSelector, useDispatch } from 'react-redux';
-import { AddProductToShoppingCard, Product } from '../../Redux/Reducer';
+import { AddProductToShoppingCard, Product } from '../../Store/Reducer';
 import { Dispatch } from 'react';
 const Workshops = () => {
   const ShoppingCard = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
   const dispatch:Dispatch<any> = useDispatch()
+
   const CurrentProduct = {
     "id": 7,
     "data": {
@@ -23,7 +24,7 @@ const Workshops = () => {
   return(
     <div>
       <div className={s.titleWrapper}>
-        <p className={s.title}>WORKSHOPS</p>
+        <h2 className={s.title}>WORKSHOPS</h2>
         <p className={s.description}>Learn how to make magic hanging sculptures</p>
       </div>
       <div className={s.FrontImage}>
@@ -48,7 +49,7 @@ const Workshops = () => {
       <div className={s.offerCart}>
         <img src='Img/Workshops/Workshop_3.png'/>
         <div className={s.offer}>
-          <b className={s.offerTitle}>Planteplanet Workshop</b>
+          <h2 >Planteplanet Workshop</h2>
           <p>
             In this workshop we make the popular 
             hanging plant Hoya.

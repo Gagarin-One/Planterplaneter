@@ -1,9 +1,9 @@
 import { Dispatch, FC, useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
-import {Product, ThunkActionType } from "../../Redux/Reducer";
+import {Product, ThunkActionType } from "../../Store/Reducer";
 import s from './Products.module.scss'
-import { StateType } from '../../Redux/Redux';
+import { StateType } from '../../Store/Store';
 import Preloader from "../Preloader/Preloader";
 
 type ProductType = {
@@ -14,6 +14,7 @@ type ProductType = {
 const Products:FC<ProductType> = ({ArrayOfProducts,request}) => {
 const dispatch:Dispatch<any> = useDispatch()
 const initialized = useSelector((state:StateType) => state.MainReducer.isInitialized)
+
 useEffect(() =>{
   dispatch(request())
 },[])
@@ -24,7 +25,10 @@ useEffect(() =>{
   }
   return (
     <div className={s.wrapper}>
-      {ArrayOfProducts.map((item) => {return <div key={item.id} className={s.ProductWrapper}>
+      {ArrayOfProducts.map((item) => {return <div
+        key={item.id}
+        className={s.ProductWrapper}
+        >
         <NavLink style={{ textDecoration: 'none' }} to={`/Products/${item.data.ProductId}`}>
           <div>
             <img src={item.data.image}/>

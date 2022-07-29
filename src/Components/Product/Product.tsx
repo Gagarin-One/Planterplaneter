@@ -2,14 +2,11 @@ import React, { Dispatch, FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
-import { getRequestedProductItem, AddProductToShoppingCard,UpdateQuantityInCard,Actions } from "../../Redux/Reducer";
+import { getRequestedProductItem, AddProductToShoppingCard,UpdateQuantityInCard,Actions } from "../../Store/Reducer";
 import s from './Product.module.scss'
-import { StateType } from '../../Redux/Redux';
+import { StateType } from '../../Store/Store';
 
-type ProductType = {
-} 
-
-const Product:FC<ProductType> = () => {
+const Product = () => {
   const CurrentProduct = useSelector((state:StateType) => state.MainReducer.CurrentProduct)
   const ShoppingCard = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
 
@@ -46,7 +43,7 @@ return (
       <div className={s.wrapper}>
       <img src={CurrentProduct.image}/>
       <div className={s.information}>
-        <b className={s.title}>{CurrentProduct.title}</b>
+        <h2 className={s.title}>{CurrentProduct.title}</h2>
         <div className={s.price}>{CurrentProduct.price}</div>
         <div className={s.addBlock}>
           <button onClick={() => AddToCard()} className={s.addToCard}>add to card</button>
@@ -100,7 +97,7 @@ return (
         </NavLink>
       </div>
       <NavLink to='/Shop' style={{ textDecoration: 'none' }}>
-      <button>SEE MORE</button>
+        <button>SEE MORE</button>
       </NavLink>
     </div>
   </div>

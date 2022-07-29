@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
-import { getArrayOfProducts } from "../../Redux/Reducer"
+import { getArrayOfProducts } from "../../Store/Reducer"
 import Products from "../Products/Products"
-import { StateType } from '../../Redux/Redux';
+import { StateType } from '../../Store/Store';
 
 let ShopPage = () => {
   const ArrayOfProducts = useSelector((state:StateType) => state.MainReducer.ArrayOfProducts)

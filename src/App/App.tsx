@@ -9,11 +9,11 @@ const Product = lazy(() => import('../Components/Product/Product'))
 const ShopPage = lazy(() => import('../Components/ShopPage/ShopPage'))
 const Workshops = lazy(() => import('../Components/WorkshopsPage/Workshop'))
 const ShoppingCard = lazy(() => import('../Components/ShoppingCard/ShoppingCard'))
-const Spaces = lazy(() => import('../Components/Spaces/Spaces'))
-const About = lazy(() => import('../Components/About/About'))
-const Search = lazy(() => import('../Components/Search/Search'))
+const Spaces = lazy(() => import('../Components/SpacesPage/Spaces'))
+const About = lazy(() => import('../Components/AboutPage/About'))
+const Search = lazy(() => import('../Components/SearchPage/Search'))
 const Contacts = lazy(() => import('../Components/ContactPage/Contact'))
-const Footer = lazy(() => import('../Components/footer/Footer'))
+const Footer = lazy(() => import('../Components/Footer/Footer'))
 
 function App() {
   return (

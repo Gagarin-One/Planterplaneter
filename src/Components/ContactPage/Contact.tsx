@@ -4,14 +4,14 @@ const Contacts = () => {
   return (
     <div className={s.wrapper}>
       <div>
-        <p className={s.title}>ADDRESS</p>
+        <b className={s.title}>ADDRESS</b>
         <p>Designkollektivet,</p>
         <p>Jagersborgsgade 5</p>
         <p>2200 København N</p>
         <p>DENMARK</p>
       </div>
       <div>
-        <p className={s.title}>CONTACT</p>
+        <b className={s.title}>CONTACT</b>
         <p>PHONE: +45 30 22 82 20</p>
         <p>EMAIL: kaja@kajaskytte.dk</p>
         <p>CVR: 36353481</p>

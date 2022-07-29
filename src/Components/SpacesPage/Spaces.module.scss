@@ -55,20 +55,19 @@
     width: 45vw;
     min-width:380px;
     max-width:570px;
-    margin-right:102px;
+    margin-right:82px;
   }
 }
 .cartWrapper{
   display:flex;
   justify-content:space-between;
-  margin-bottom:140px;
+  margin-bottom:190px;
   
   
-  .title{
+  h4{
     margin-top:20%;
-    
     font-size:36px;
-    weight: bold;
+    font-weight: bold;
   }
   .text{
     margin-left: 127px;
@@ -91,19 +90,18 @@
   margin-bottom:140px;
 
   .unitImage{
-    margin-right: 40px;
+    margin-right: 0px;
     img{
       width:38vw;
       max-width: 601px;
       max-height: 439px;
-      margin-left:102px;
+      
     }
   }
-  .title{
+  h4{
     margin-top:20%;
-    
     font-size:36px;
-    weight: bold;
+    
   }
   .text{
     margin-right: 127px;

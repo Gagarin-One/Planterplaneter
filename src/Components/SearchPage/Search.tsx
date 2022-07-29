@@ -1,9 +1,9 @@
 import s from './Search.module.scss'
-import { StateType } from '../../Redux/Redux';
+import { StateType } from '../../Store/Store';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { getArrayOfProducts } from '../../Redux/Reducer';
+import { getArrayOfProducts } from '../../Store/Reducer';
 import Preloader from '../Preloader/Preloader';
 
 const Search = () => {
@@ -27,11 +27,19 @@ const Search = () => {
   return(
     <div>
       <div>
-          <input onChange={onChangeSearch} value={SearchValue} placeholder="Find..." type='text'/>
+          <input 
+            onChange={onChangeSearch} 
+            value={SearchValue} 
+            placeholder="Find..." 
+            type='text'
+          />
       </div>
       <div className={s.ItemsWrapper}>
       <div className={s.wrapper}>  
-      {ArrayOfProducts.filter((item) => item.data.title.toLowerCase().includes(SearchValue.toLowerCase())).map((item) => {return <div key={item.id} className={s.ProductWrapper}>
+      {ArrayOfProducts.filter((item) => item.data.title.toLowerCase().includes(SearchValue.toLowerCase())).map((item) => {return <div 
+          key={item.id}
+          className={s.ProductWrapper}
+        >
         <NavLink style={{ textDecoration: 'none' }} to={`/Products/${item.data.ProductId}`}>
           <div>
             <img src={item.data.image}/>

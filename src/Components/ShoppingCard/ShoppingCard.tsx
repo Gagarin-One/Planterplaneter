@@ -1,28 +1,20 @@
 import { Dispatch, FC, useEffect } from "react";
 import s from './ShoppingCard.module.scss';
-import { StateType } from '../../Redux/Redux';
+import { StateType } from '../../Store/Store';
 import { useDispatch, useSelector } from "react-redux";
-import { GetShoppingCardArray,DeleteProductFromShoppingCard,UpdateQuantityInCard, Product } from '../../Redux/Reducer';
+import { GetShoppingCardArray,DeleteProductFromShoppingCard,UpdateQuantityInCard, Product } from '../../Store/Reducer';
 import { useNavigate } from "react-router-dom";
 import Preloader from "../Preloader/Preloader";
 
-type ShoppingCardType = {}
-
-const ShoppingCard:FC<ShoppingCardType> = () => {
+const ShoppingCard = () => {
   const initialized = useSelector((state:StateType) => state.MainReducer.isInitialized)
   const ShoppingCardArray = useSelector((state:StateType) => state.MainReducer.ShoppingCard)
   const navigate = useNavigate()
   const dispatch:Dispatch<any> = useDispatch()
 
-  let sumPrice = () => { 
-    let sum:number = 0;
-    for (let i = 0; ShoppingCardArray.length > i; i++) {
-      sum += ShoppingCardArray[i].data.price
-    }
-    return sum
-  }
+  const sumPrice = ShoppingCardArray.reduce((acc,card) => {return acc + card.data.price},0)
   
-  let remove = (id:number) => {
+  const remove = (id:number) => {
     dispatch(DeleteProductFromShoppingCard(id))
   }
 
@@ -57,7 +49,7 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
       <div className={s.header}>
         <div className={s.left}>
           <img src='Img/ShopIcon.svg'/>
-          <p>Shopping card</p>
+          <h3>Shopping card</h3>
         </div>
       </div>
       <div className={s.ProductWrapper}>
@@ -68,7 +60,7 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
             <img src={Product.data.image}/>
           </div>
 
-          <div>{Product.data.title}</div>
+          <p className={s.title}>{Product.data.title}</p>
 
           <div className={s.counter}>
 
@@ -90,7 +82,7 @@ const ShoppingCard:FC<ShoppingCardType> = () => {
           <button onClick={() => navigate(-1)} className={s.Back}>Go back</button>
         </div>
         <div className={s.rightTotal}>
-          <p>Total price: {sumPrice()}</p>
+          <p>Total price: {sumPrice}</p>
           <button className={s.PayNow}>Pay now</button>
         </div>      
       </div>      
