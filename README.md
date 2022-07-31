@@ -15,6 +15,7 @@ Project is created with:
 * React version:18.1.0
 * Redux 
 * Redux-thunk
+* React-router
 * Typescript
 * Scss
 * Axios
