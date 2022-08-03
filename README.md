@@ -45,6 +45,8 @@ for (let i = 0; i < getState().MainReducer.ShoppingCard.length; i++)
 ```
 
 ## Setup
+p.s. if you have cloned the repository and launched it and you do not load images, then this happens because the links to them are specified so that github pages works, but create react app does not see them
+
 To run this project, install it locally using npm:
 
 ```
